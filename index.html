@@ -61,13 +61,12 @@ img{display:block;max-width:100%}
 .pill-ico{display:none}
 .pill-ghost{border-color:var(--line);color:var(--text)}
 .pill-ghost:hover{background:var(--card2);color:var(--text);border-color:var(--mut)}
+.foot-logo{display:block;margin:14px auto 0;height:26px;width:auto}
 .foot-gif{display:block;width:96px;height:96px;margin:30px auto 0;image-rendering:pixelated}
 @media(max-width:520px){
   .top{top:8px;left:8px;right:8px;border-radius:16px}
   .top-in{height:56px;padding-inline:10px;gap:6px}
-  .top .logo-mark{display:none}
-  .top .logo{font-size:12px;white-space:nowrap}
-  .brand{gap:6px}
+    .brand{gap:6px}
   .top .pill{white-space:nowrap;min-height:38px;padding:0 13px;font-size:12px}
   .top .pill-ghost{padding:0;width:38px;justify-content:center}
   .pill-ghost .pill-txt{display:none}
@@ -75,7 +74,8 @@ img{display:block;max-width:100%}
   .nav{gap:6px}
   .hero{padding-top:108px}
 }
-@media(max-width:359px){.logo>span:last-child{display:none}}
+@media(max-width:349px){.top-gif{display:none}}
+.logo img{display:block;height:28px;width:auto}
 .logo{white-space:nowrap;display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.06em;font-size:13px}
 .logo b{color:var(--orange)}
 .logo-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--card);border:1px solid var(--line);font-size:11px;letter-spacing:0}
@@ -167,35 +167,56 @@ img{display:block;max-width:100%}
 .custom{margin-top:22px;font-size:15px;color:var(--ink-mut)}
 .custom a{color:var(--ink);font-weight:700;border-bottom:2px solid var(--orange)}
 
-/* ---------- cases ---------- */
+/* ---------- cases: cards empilhados na horizontal ---------- */
 .hs{position:relative}
-.hs-pin{display:flex;align-items:center;overflow:hidden;overflow:clip;width:100vw;margin:30px 0 0 calc(50% - 50vw)}
-.cases{display:flex;gap:18px;padding:6px var(--gut) 18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;width:100%}
-.cases::-webkit-scrollbar{display:none}
-.cases>.case{flex:0 0 min(340px,80vw);scroll-snap-align:center}
-.hs-on .hs-pin{position:sticky;top:0;height:100vh;height:100svh;margin-top:0}
-.hs-on .cases{overflow:visible;width:max-content;scroll-snap-type:none;will-change:transform}
-.case{display:flex;flex-direction:column;gap:14px}
-.frame{border-radius:18px;overflow:hidden;background:#111;border:1px solid var(--line);transition:transform .4s var(--ease),border-color .3s}
-.case:hover .frame{transform:translateY(-4px);border-color:rgba(240,106,0,.5)}
+.hs-pin{position:relative;width:100vw;margin:34px 0 0 calc(50% - 50vw);overflow:hidden;overflow:clip}
+.stack{display:grid;gap:18px;width:min(1040px,100% - 2*var(--gut));margin-inline:auto}
+.scard{position:relative;display:flex;flex-direction:column;gap:20px;padding:clamp(20px,3vw,40px);border-radius:28px;background:#f3efe7;color:var(--ink);box-shadow:0 24px 60px rgba(0,0,0,.45);overflow:hidden}
+.scard::after{content:"";position:absolute;inset:0;background:#000;opacity:var(--dim,0);pointer-events:none;border-radius:inherit}
+.sc-text{display:flex;flex-direction:column;gap:14px;min-width:0}
+.sc-num{font-family:var(--display);font-size:clamp(54px,9vh,110px);line-height:.85;color:var(--orange)}
+.scard h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(40px,7.4vh,76px);line-height:.92}
+.scard p{color:var(--ink-mut);font-size:clamp(14px,1.9vh,17px);max-width:30em}
+.scard .tags span{border-color:rgba(13,13,18,.18);color:#3a3a4a}
+.scard .tags span.hot{border-color:var(--orange);color:#b04a00}
+.scard a.go{margin-top:auto;display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:15px;color:var(--ink);border-bottom:2px solid var(--orange);align-self:flex-start;padding-bottom:2px}
+.scard a.go:hover{color:var(--orange)}
+.scard .priv{margin-top:auto;font-size:14px;color:var(--ink-mut)}
+.frame{border-radius:16px;overflow:hidden;background:#111;border:1px solid rgba(13,13,18,.14);display:flex;flex-direction:column;min-height:0}
 .bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:#18181b}
 .bar i{width:8px;height:8px;border-radius:50%;background:#3f3f46}
 .url{flex:1;margin-left:8px;padding:5px 12px;border-radius:999px;background:var(--bg);color:var(--mut);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.shot{aspect-ratio:800/667;background:linear-gradient(135deg,#1e1e24,#18181f);position:relative;overflow:hidden}
+.shot{aspect-ratio:800/667;background:linear-gradient(135deg,#1e1e24,#18181f);position:relative;overflow:hidden;flex:1;min-height:0}
 .shot img{width:100%;height:100%;object-fit:contain;object-position:center}
 .shot.noimg img{display:none}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{padding:4px 10px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--mut)}
-.tags span.hot{border-color:rgba(240,106,0,.5);color:#ffb27a}
-.case h3{font-family:var(--display);font-weight:400;font-size:34px;line-height:1;text-transform:uppercase}
-.case p{color:var(--mut);font-size:15px}
-.case .result{color:#fff;font-weight:700}
-.case a.go{margin-top:auto;font-weight:700;font-size:14px;color:var(--orange)}
-.case a.go:hover{text-decoration:underline}
-.case .priv{margin-top:auto;font-size:14px;color:var(--mut)}
-.case-cta{justify-content:center;align-items:flex-start;padding:28px;border-radius:18px;border:1.5px dashed #3f3f46;align-self:stretch}
-.case-cta h3{font-size:42px}
-
+.scard-cta{background:var(--orange);justify-content:center}
+.scard-cta .sc-num{color:var(--ink)}
+.scard-cta p{color:#3a1c00;font-weight:500}
+.scard-cta .tags span{border-color:rgba(13,13,18,.4);color:var(--ink)}
+.scard-cta .btn{align-self:flex-start;margin-top:6px}
+.cta-art{display:none;flex-direction:column;align-items:center;justify-content:center;gap:22px;border-radius:20px;background:var(--bg);padding:24px}
+.cta-gif{width:min(240px,32vh);height:auto;aspect-ratio:1;image-rendering:pixelated}
+.scard-cta .sc-text{justify-content:center}
+.hs-count{display:none;position:absolute;left:0;right:0;bottom:12px;text-align:center;font-size:12px;letter-spacing:.2em;color:var(--mut)}
+.hs-count b{color:var(--orange)}
+.hs-on .hs-pin{position:sticky;top:0;height:100vh;height:100svh;margin-top:0}
+.hs-on .stack{position:absolute;display:block;top:96px;bottom:52px;left:0;right:0;margin:auto;height:auto}
+.hs-on .scard{position:absolute;inset:0;will-change:transform;transform-origin:left center}
+.hs-on .hs-count{display:block}
+@media(min-width:900px){
+  .scard{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:stretch;gap:clamp(20px,3vw,44px)}
+  .scard .frame{align-self:center;max-height:100%}
+  .scard-cta .cta-art{display:flex}
+}
+@media(max-width:899px){
+  .hs-on .scard{gap:12px;padding:18px}
+  .hs-on .sc-num{display:inline;font-size:44px}
+  .hs-on .scard h3{font-size:clamp(34px,5.6vh,50px)}
+  .sc-head{display:flex;align-items:baseline;gap:12px}
+  .scard .frame{flex:1;min-height:0}
+}
 /* ---------- depoimentos (oculto até ter falas reais) ---------- */
 .quotes{display:grid;gap:16px;margin-top:40px}
 .quote{padding:26px;border-radius:22px;background:var(--card);border:1px solid var(--line)}
@@ -246,7 +267,6 @@ img{display:block;max-width:100%}
   .hero-grid{grid-template-columns:minmax(0,1.7fr) minmax(0,.6fr);align-items:end;gap:48px}
   .menu{grid-template-columns:repeat(2,minmax(0,1fr))}
   .monthly{grid-template-columns:minmax(0,1fr) auto;align-items:center}
-  .cases>.case{flex-basis:360px}
   .steps{grid-template-columns:repeat(3,minmax(0,1fr))}
   .step{grid-template-columns:minmax(0,1fr)}
   .quotes{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -271,7 +291,7 @@ img{display:block;max-width:100%}
 <header class="top">
   <div class="wrap top-in">
     <div class="brand">
-      <a class="logo" href="#inicio" aria-label="Parrini Dev, voltar ao início"><span class="logo-mark" aria-hidden="true">&lt;/&gt;</span><span>PARRINI <b>DEV</b></span></a>
+      <a class="logo" href="#inicio" aria-label="Parrini Dev, voltar ao início"><img src="parrini-dev-logo-dark.svg" alt="Parrini Dev" width="117" height="28"></a>
       <img class="top-gif" src="Giuseppe.gif" alt="" width="64" height="64">
     </div>
     <nav class="nav">
@@ -385,64 +405,86 @@ img{display:block;max-width:100%}
       <h2 class="h2 rv">Sites que já estão <span class="or">trabalhando</span></h2>
 
       <div class="hs" id="hs">
-      <div class="hs-pin"><div class="cases" id="casetrack">
-        <article class="case">
+      <div class="hs-pin">
+      <div class="stack" id="stack">
+        <article class="scard">
+          <div class="sc-text">
+            <div class="sc-head"><span class="sc-num">01</span></div>
+            <h3>iLoog Delivery</h3>
+            <div class="tags"><span>Landing page</span><span>Cliente real</span><span class="hot">Refeito na v2</span></div>
+            <p>Landing page para delivery, refeita na versão 2 a pedido do cliente.</p>
+            <a class="go" href="https://iloogdelivery.com.br/" target="_blank" rel="noopener">Ver no ar <svg class="ic ic-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+          </div>
           <div class="frame">
             <div class="bar"><i></i><i></i><i></i><span class="url">iloogdelivery.com.br</span></div>
-            <div class="shot"><img src="imagens/iloog.webp" alt="iLoog Delivery" width="800" height="667" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+            <div class="shot"><img src="imagens/iloog.webp" alt="iLoog Delivery" width="800" height="667" onerror="this.parentNode.classList.add('noimg')"></div>
           </div>
-          <div class="tags"><span>Landing page</span><span>Cliente real</span><span class="hot">Refeito na v2</span></div>
-          <h3>iLoog Delivery</h3>
-          <p>Landing page para delivery, refeita na versão 2 a pedido do cliente.</p>
-          <a class="go" href="https://iloogdelivery.com.br/" target="_blank" rel="noopener">Ver no ar <svg class="ic ic-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
         </article>
-        <article class="case">
+        <article class="scard">
+          <div class="sc-text">
+            <div class="sc-head"><span class="sc-num">02</span></div>
+            <h3>Skull Multimarcas</h3>
+            <div class="tags"><span>Bio link</span><span>Catálogo</span><span class="hot">Cliente real</span></div>
+            <p>Começou como bio link e virou catálogo com painel de administração, pensado para circular pelo WhatsApp.</p>
+            <a class="go" href="https://bio-skull.vercel.app/" target="_blank" rel="noopener">Ver no ar <svg class="ic ic-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+          </div>
           <div class="frame">
             <div class="bar"><i></i><i></i><i></i><span class="url">bio-skull.vercel.app</span></div>
-            <div class="shot"><img src="imagens/skull.webp" alt="Skull Multimarcas" width="800" height="667" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+            <div class="shot"><img src="imagens/skull.webp" alt="Skull Multimarcas" width="800" height="667" onerror="this.parentNode.classList.add('noimg')"></div>
           </div>
-          <div class="tags"><span>Bio link</span><span>Catálogo</span><span class="hot">Cliente real</span></div>
-          <h3>Skull Multimarcas</h3>
-          <p>Começou como bio link e virou catálogo com painel de administração, pensado para circular pelo WhatsApp.</p>
-          <a class="go" href="https://bio-skull.vercel.app/" target="_blank" rel="noopener">Ver no ar <svg class="ic ic-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
         </article>
-        <article class="case">
+        <article class="scard">
+          <div class="sc-text">
+            <div class="sc-head"><span class="sc-num">03</span></div>
+            <h3>Bolão 2026</h3>
+            <div class="tags"><span>Web app</span><span class="hot">PWA</span></div>
+            <p>Aplicativo de bolão que se instala no celular, com palpites e ranking entre os participantes.</p>
+            <a class="go" href="https://bolao26-psi.vercel.app/" target="_blank" rel="noopener">Ver no ar <svg class="ic ic-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+          </div>
           <div class="frame">
             <div class="bar"><i></i><i></i><i></i><span class="url">bolao26-psi.vercel.app</span></div>
-            <div class="shot"><img src="imagens/bolao.webp" alt="Bolão 2026" width="800" height="667" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+            <div class="shot"><img src="imagens/bolao.webp" alt="Bolão 2026" width="800" height="667" onerror="this.parentNode.classList.add('noimg')"></div>
           </div>
-          <div class="tags"><span>Web app</span><span class="hot">PWA</span></div>
-          <h3>Bolão 2026</h3>
-          <p>Aplicativo de bolão que se instala no celular, com palpites e ranking entre os participantes.</p>
-          <a class="go" href="https://bolao26-psi.vercel.app/" target="_blank" rel="noopener">Ver no ar <svg class="ic ic-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
         </article>
-        <article class="case">
+        <article class="scard">
+          <div class="sc-text">
+            <div class="sc-head"><span class="sc-num">04</span></div>
+            <h3>Mecânica S.A</h3>
+            <div class="tags"><span>Painel</span><span class="hot">Gestão</span></div>
+            <p>Sistema de gestão com painel para controlar o dia a dia do negócio.</p>
+            <span class="priv">Projeto privado</span>
+          </div>
           <div class="frame">
             <div class="bar"><i></i><i></i><i></i><span class="url">sistema interno</span></div>
-            <div class="shot"><img src="imagens/mecanica.webp" alt="Mecânica S.A" width="800" height="667" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+            <div class="shot"><img src="imagens/mecanica.webp" alt="Mecânica S.A" width="800" height="667" onerror="this.parentNode.classList.add('noimg')"></div>
           </div>
-          <div class="tags"><span>Painel</span><span class="hot">Gestão</span></div>
-          <h3>Mecânica S.A</h3>
-          <p>Sistema de gestão com painel para controlar o dia a dia do negócio.</p>
-          <span class="go priv">Projeto privado</span>
         </article>
-        <article class="case">
+        <article class="scard">
+          <div class="sc-text">
+            <div class="sc-head"><span class="sc-num">05</span></div>
+            <h3>Contratos SENAI</h3>
+            <div class="tags"><span>Sistema web</span><span class="hot">Automação</span></div>
+            <p>Sistema web para controle de contratos, feito durante meu estágio no SENAI/CNI.</p>
+            <span class="priv">Projeto privado</span>
+          </div>
           <div class="frame">
             <div class="bar"><i></i><i></i><i></i><span class="url">sistema interno</span></div>
-            <div class="shot"><img src="imagens/senai.webp" alt="Contratos SENAI" width="800" height="667" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+            <div class="shot"><img src="imagens/senai.webp" alt="Contratos SENAI" width="800" height="667" onerror="this.parentNode.classList.add('noimg')"></div>
           </div>
-          <div class="tags"><span>Sistema web</span><span class="hot">Automação</span></div>
-          <h3>Contratos SENAI</h3>
-          <p>Sistema web para controle de contratos, feito durante meu estágio no SENAI/CNI.</p>
-          <span class="go priv">Projeto privado</span>
         </article>
-        <article class="case case-cta">
-          <div class="tags"><span class="hot">Próximo case</span></div>
-          <h3>O próximo pode ser o seu negócio</h3>
-          <p>Me conta o que você vende e eu preparo uma demo com o nome da sua loja.</p>
-          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seus cases e quero uma demo para o meu negócio.">Quero minha demo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+        <article class="scard scard-cta">
+          <div class="sc-text">
+            <div class="sc-head"><span class="sc-num">06</span></div>
+            <h3>O próximo pode ser o seu negócio</h3>
+            <div class="tags"><span>Próximo case</span></div>
+            <p>Me conta o que você vende e eu preparo uma demo com o nome da sua loja.</p>
+            <a class="btn btn-dark" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seus cases e quero uma demo para o meu negócio.">Quero minha demo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+          </div>
+          <div class="cta-art"><img class="cta-gif" src="Giuseppe.gif" alt="" width="64" height="64"><img src="parrini-dev-logo-dark.svg" alt="Parrini Dev" width="188" height="45"></div>
         </article>
-      </div></div>
+      </div>
+      <div class="hs-count" aria-hidden="true"><b id="hsn">01</b> / 06</div>
+      </div>
       </div>
     </div>
   </section>
@@ -505,6 +547,7 @@ img{display:block;max-width:100%}
       <em aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></em>
     </a>
     <img class="foot-gif" src="Giuseppe.gif" alt="Giuseppe programando em sua mesa" width="96" height="96" loading="lazy">
+    <img class="foot-logo" src="parrini-dev-logo-dark.svg" alt="Parrini Dev" width="125" height="30" loading="lazy">
     <p class="copy">© 2026 Parrini Dev</p>
   </div>
 </footer>
@@ -558,17 +601,17 @@ img{display:block;max-width:100%}
   var split=document.querySelector('.split');
   var sl=split&&split.querySelector('.sl'), sr=split&&split.querySelector('.sr');
 
-  /* cases: a rolagem vertical move os cards na horizontal */
-  var hs=document.getElementById('hs'), cs=document.getElementById("casetrack"), hsMax=0;
+  /* cases: a rolagem vertical empilha os cards na horizontal */
+  var hs=document.getElementById('hs'), stack=document.getElementById('stack'), hsn=document.getElementById('hsn');
+  var cards=stack?[].slice.call(stack.children):[], N=cards.length;
   function hsSize(){
-    if(!hs||reduce){return;}
+    if(!hs||reduce||!N){return;}
     hs.classList.add('hs-on');
-    hsMax=Math.max(0,cs.scrollWidth-window.innerWidth);
-    hs.style.height=(hsMax+window.innerHeight)+'px';
+    hs.style.height=Math.round(window.innerHeight*(1+(N-1)*.8))+'px';
   }
   hsSize();
-  window.addEventListener('load',hsSize);
   window.addEventListener('resize',hsSize);
+  var ease=function(t){return 1-Math.pow(1-t,3);};
 
   var ticking=false;
   function frame(){
@@ -585,9 +628,18 @@ img{display:block;max-width:100%}
       sl.style.transform='translate3d('+(-e*38)+'vw,0,0)';
       sr.style.transform='translate3d('+(e*38)+'vw,0,0)';
     }
-    if(hs && !reduce && hsMax){
-      var h=hs.getBoundingClientRect();
-      cs.style.transform='translate3d('+(-clamp(-h.top/hsMax)*hsMax)+'px,0,0)';
+    if(hs && !reduce && N){
+      var h=hs.getBoundingClientRect(), tot=hs.offsetHeight-vh;
+      var P=clamp(-h.top/tot)*(N-1), w=window.innerWidth, peek=w<900?7:22;
+      var arr=cards.map(function(c,i){return i?ease(clamp(P-(i-1))):1;});
+      cards.forEach(function(c,i){
+        var d=0; for(var k=i+1;k<N;k++) d+=arr[k];
+        var dd=Math.min(d,4);
+        c.style.zIndex=i+1;
+        c.style.transform='translate3d('+((1-arr[i])*w*1.1-dd*peek)+'px,0,0) scale('+(1-dd*.035)+')';
+        c.style.setProperty('--dim',Math.min(d,3)*.16);
+      });
+      if(hsn) hsn.textContent='0'+(Math.round(P)+1);
     }
     ticking=false;
   }
