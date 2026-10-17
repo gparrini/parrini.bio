@@ -16,21 +16,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 
-<!--
-  ============================================================
-  O QUE VOCÊ PRECISA EDITAR (procure por "EDITAR" no arquivo)
-  ------------------------------------------------------------
-  1. Preços "a partir de" de cada item do cardápio e da mensalidade
-     (os valores atuais são sugestões, confirme os seus).
-  2. Prazo real no passo 3 de "Como funciona".
-  3. Resultados dos cases (linha com class="result" hidden):
-     tire o atributo hidden quando tiver um número real.
-  4. Depoimentos (section id="depoimentos" hidden): só ative com
-     falas reais de clientes, com autorização.
-  5. Número do WhatsApp: está em uma única constante no <script>.
-  ============================================================
--->
-
 <style>
 :root{
   --bg:#0d0d0d; --card:#18181f; --card2:#1e1e24; --line:#27272a;
@@ -50,7 +35,6 @@ img{display:block;max-width:100%}
 .wrap{max-width:1120px;margin-inline:auto;padding-inline:var(--gut)}
 :focus-visible{outline:2px solid var(--orange);outline-offset:3px}
 
-/* ---------- header ---------- */
 .top{position:fixed;top:12px;left:12px;right:12px;z-index:50;max-width:1096px;margin-inline:auto;background:rgba(13,13,13,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 .top-in{display:flex;align-items:center;justify-content:space-between;gap:10px;height:64px;padding-inline:16px}
 .brand{display:flex;align-items:center;gap:10px;height:100%}
@@ -82,7 +66,6 @@ img{display:block;max-width:100%}
 .pill{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(240,106,0,.55);color:var(--orange);font-size:13px;font-weight:700;transition:background .25s,color .25s}
 .pill:hover{background:var(--orange);color:var(--bg)}
 
-/* ---------- buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:700;font-size:15px;border:1px solid transparent;transition:transform .25s var(--ease),background .25s,box-shadow .25s}
 .btn:active{transform:scale(.98)}
 .btn-or{background:var(--orange);color:var(--bg);box-shadow:0 10px 36px var(--glow)}
@@ -92,11 +75,9 @@ img{display:block;max-width:100%}
 .btn-dark{background:var(--bg);color:var(--text)}
 .btn-dark:hover{transform:translateY(-2px)}
 
-/* ---------- reveal ---------- */
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
 
-/* ---------- hero ---------- */
 .hero{position:relative;padding:128px 0 56px;background:
   radial-gradient(60% 50% at 85% 10%,var(--glow),transparent 70%),
   radial-gradient(40% 40% at 0% 100%,rgba(240,106,0,.08),transparent 70%)}
@@ -118,7 +99,6 @@ img{display:block;max-width:100%}
 .profile strong{display:block;color:#fff;font-size:16px}
 .chip{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;background:var(--glow);color:#ffb27a;font-size:12px;font-weight:500}
 
-/* ---------- marquee ---------- */
 .marq-wrap{overflow:hidden;padding:26px 0 8px}
 .marq{background:var(--orange);color:var(--bg);overflow:hidden;border-block:1px solid #000;transform:rotate(-1.2deg);margin:0 -4vw}
 .marq-track{display:flex;width:max-content;animation:marq 30s linear infinite}
@@ -126,7 +106,6 @@ img{display:block;max-width:100%}
 .marq span::after{content:"/";margin-left:44px;opacity:.55}
 @keyframes marq{to{transform:translateX(-50%)}}
 
-/* ---------- sections ---------- */
 .sec{padding:clamp(72px,12vw,130px) 0}
 .label{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--mut);margin-bottom:18px}
 .label b{color:var(--orange);font-weight:700}
@@ -138,7 +117,6 @@ img{display:block;max-width:100%}
 .js .statement span{color:#34343a;transition:color .35s}
 .js .statement span.on{color:#fff}
 
-/* ---------- cardápio (seção clara) ---------- */
 .light{background:var(--light);color:var(--ink)}
 .light .label{color:var(--ink-mut)}
 .menu{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-top:44px}
@@ -166,7 +144,6 @@ img{display:block;max-width:100%}
 .custom{margin-top:22px;font-size:15px;color:var(--ink-mut)}
 .custom a{color:var(--ink);font-weight:700;border-bottom:2px solid var(--orange)}
 
-/* ---------- cases: cards empilhados na horizontal, movidos pela rolagem VERTICAL ---------- */
 .hs{position:relative}
 .hs-pin{position:relative;width:100vw;margin:34px 0 0 calc(50% - 50vw)}
 .stack{display:grid;gap:18px;width:min(1040px,100% - 2*var(--gut));margin-inline:auto}
@@ -200,7 +177,6 @@ img{display:block;max-width:100%}
 .cta-art{display:none;flex-direction:column;align-items:center;justify-content:center;gap:22px;border-radius:20px;background:var(--bg);padding:24px}
 .cta-gif{width:min(240px,32vh);height:auto;aspect-ratio:1;image-rendering:pixelated}
 
-/* guia de rolagem: deixa claro que o movimento e para BAIXO / CIMA */
 .hs-ui{display:none}
 .hs-on .hs-ui{display:flex}
 .hs-bar{z-index:20;position:absolute;left:0;right:0;bottom:12px;align-items:center;justify-content:center;gap:12px;padding-inline:var(--gut)}
@@ -235,13 +211,11 @@ img{display:block;max-width:100%}
   .hs-on .scard p{font-size:14px}
   .hs-rail{display:none!important}
 }
-/* ---------- depoimentos (oculto até ter falas reais) ---------- */
 .quotes{display:grid;gap:16px;margin-top:40px}
 .quote{padding:26px;border-radius:22px;background:var(--card);border:1px solid var(--line)}
 .quote p{font-size:18px;line-height:1.4}
 .quote cite{display:block;margin-top:14px;font-style:normal;color:var(--mut);font-size:14px}
 
-/* ---------- como funciona ---------- */
 .split{position:relative;overflow:hidden;overflow:clip;padding:8px 0 0}
 .split .sl,.split .sr{display:block;font-family:var(--display);text-transform:uppercase;line-height:.84;font-size:clamp(78px,24vw,250px);will-change:transform}
 .split .sr{text-align:right;color:var(--orange)}
@@ -251,7 +225,6 @@ img{display:block;max-width:100%}
 .step h3{font-size:19px;margin-bottom:4px}
 .step p{color:var(--mut);font-size:15px}
 
-/* ---------- quem faz ---------- */
 .who{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:center}
 .who-img{border-radius:28px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;max-width:420px;background:var(--card)}
 .who-img img{width:100%;height:100%;object-fit:cover}
@@ -260,12 +233,10 @@ img{display:block;max-width:100%}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .chips span{padding:7px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;color:#e4e4e7}
 
-/* ---------- cta final ---------- */
 .final{background:var(--orange);color:var(--bg);padding:clamp(64px,11vw,120px) 0;text-align:left}
 .final h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(54px,15vw,150px);line-height:.88;max-width:10em}
 .final p{margin:18px 0 28px;font-size:18px;max-width:28em;font-weight:500}
 
-/* ---------- footer ---------- */
 .foot{padding:48px 0 28px}
 .port{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 24px;border-radius:22px;background:var(--card);border:1px solid var(--line);transition:border-color .3s,transform .3s var(--ease)}
 .port:hover{border-color:var(--orange);transform:translateY(-2px)}
@@ -274,13 +245,11 @@ img{display:block;max-width:100%}
 .port em{font-style:normal;color:var(--orange);font-size:26px;display:grid}
 .copy{margin-top:22px;color:#71717a;font-size:12px;text-align:center}
 
-/* ---------- botão flutuante ---------- */
 .fab{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;transform:translate(-50%,160%);transition:transform .5s var(--ease);width:max-content;max-width:calc(100% - 28px)}
 .fab.show{transform:translate(-50%,0)}
 .in-hs .fab.show{transform:translate(-50%,160%)}
 .fab .btn{box-shadow:0 14px 40px rgba(0,0,0,.55),0 10px 36px rgba(240,106,0,.35)}
 
-/* ---------- desktop ---------- */
 @media(min-width:900px){
   .hero{padding-top:156px}
   .hero-grid{grid-template-columns:minmax(0,1.7fr) minmax(0,.6fr);align-items:end;gap:48px}
@@ -292,7 +261,6 @@ img{display:block;max-width:100%}
   .who{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px}
 }
 
-/* ---------- movimento reduzido ---------- */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .ln>span{animation:none;transform:none}
@@ -318,8 +286,6 @@ img{display:block;max-width:100%}
 </header>
 
 <main id="inicio">
-
-  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
@@ -346,22 +312,17 @@ img{display:block;max-width:100%}
       </div>
     </div>
   </div>
-
-  <!-- ===== FRASE (acende palavra por palavra ao rolar) ===== -->
   <section class="statement-sec">
     <div class="wrap">
       <p class="statement">Seu cliente pesquisa, compara e chama no zap. O seu site precisa estar pronto para esse momento.</p>
     </div>
   </section>
-
-  <!-- ===== CARDÁPIO ===== -->
   <section class="sec light" id="cardapio">
     <div class="wrap">
       <p class="label rv"><b>01</b> / Serviços e preços</p>
       <h2 class="h2 rv">Escolha o que <span class="hl">você precisa</span></h2>
 
       <div class="menu">
-        <!-- EDITAR: preços "a partir de" (valores sugeridos, confirme os seus) -->
         <article class="item rv">
           <div class="item-top"><span>01</span><span>Bio link</span></div>
           <h3 class="desire">Quero um cartão de visita digital</h3>
@@ -395,8 +356,6 @@ img{display:block;max-width:100%}
           <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Site institucional*. Podemos conversar sobre o orçamento?">Pedir orçamento <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
         </article>
       </div>
-
-      <!-- EDITAR: valor da mensalidade -->
       <div class="monthly rv">
         <div>
           <h3>Mensalidade <em>a partir de R$ 100</em></h3>
@@ -408,8 +367,6 @@ img{display:block;max-width:100%}
       <p class="custom rv">Precisa de algo diferente do que está aqui? <a href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Preciso de algo diferente dos serviços do site e queria conversar com você.">Me conta no WhatsApp</a>.</p>
     </div>
   </section>
-
-  <!-- ===== CASES ===== -->
   <section class="sec" id="cases">
     <div class="wrap">
       <p class="label rv"><b>02</b> / No ar</p>
@@ -504,18 +461,6 @@ img{display:block;max-width:100%}
       </div>
     </div>
   </section>
-
-  <!-- ===== DEPOIMENTOS (EDITAR: tire o hidden só com falas reais e autorizadas) ===== -->
-  <section class="sec" id="depoimentos" hidden>
-    <div class="wrap">
-      <p class="label"><b>03</b> / Quem já pediu</p>
-      <div class="quotes">
-        <figure class="quote"><p>“[fala real do cliente]”</p><cite>[Nome] · [Negócio]</cite></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== COMO FUNCIONA ===== -->
   <section class="sec" id="como" style="padding-top:0">
     <div class="split" aria-hidden="true">
       <span class="sl">Do pedido</span>
@@ -526,13 +471,10 @@ img{display:block;max-width:100%}
       <ol class="steps" style="list-style:none">
         <li class="step rv"><div><h3>Conversa rápida</h3><p>Você me conta o que vende e como seus clientes chegam até você, direto pelo WhatsApp.</p></div></li>
         <li class="step rv" style="--d:.1s"><div><h3>Você vê a demo</h3><p>Eu monto um protótipo com o nome do seu negócio. Só fecha se gostar do que viu.</p></div></li>
-        <!-- EDITAR: coloque seu prazo real aqui -->
         <li class="step rv" style="--d:.2s"><div><h3>No ar, com prazo combinado</h3><p>Publico, deixo o domínio no seu nome e te ensino a usar o painel. O prazo vai por escrito antes de começar.</p></div></li>
       </ol>
     </div>
   </section>
-
-  <!-- ===== QUEM FAZ ===== -->
   <section class="sec" id="quem" style="padding-top:0">
     <div class="wrap who">
       <div class="who-img rv"><img src="https://gparrini.github.io/parrini.dev/imagens/parrini-perfil.jpg" alt="Giuseppe Parrini" loading="lazy"></div>
@@ -544,8 +486,6 @@ img{display:block;max-width:100%}
       </div>
     </div>
   </section>
-
-  <!-- ===== CTA FINAL ===== -->
   <section class="final">
     <div class="wrap">
       <h2 class="rv">Bora colocar seu negócio no ar?</h2>
@@ -575,10 +515,8 @@ img{display:block;max-width:100%}
 
 <script>
 (function(){
-  /* EDITAR: seu número do WhatsApp (DDI + DDD + número, sem símbolos) */
   var NUM='5561984474187';
 
-  /* EDITAR: cole aqui o ID de medição do Google Analytics 4 (formato G-XXXXXXXXXX). Vazio = sem rastreio. */
   var GA_ID='G-Y66XZY1GS0';
   if(GA_ID){
     var gs=document.createElement('script'); gs.async=true; gs.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; document.head.appendChild(gs);
@@ -589,12 +527,10 @@ img{display:block;max-width:100%}
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var clamp=function(v){return Math.min(1,Math.max(0,v));};
 
-  /* links do WhatsApp com mensagem pronta (sem JS, o link abre a conversa normal) */
   document.querySelectorAll('[data-msg]').forEach(function(a){
     a.href='https://wa.me/'+NUM+'?text='+encodeURIComponent(a.getAttribute('data-msg'));
   });
 
-  /* aparecer ao rolar */
   var rv=document.querySelectorAll('.rv');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){
@@ -603,7 +539,6 @@ img{display:block;max-width:100%}
     rv.forEach(function(el){io.observe(el);});
   } else { rv.forEach(function(el){el.classList.add('in');}); }
 
-  /* botão flutuante: aparece quando os botões do topo saem da tela */
   var fab=document.getElementById('fab'), cta=document.querySelector('.hero-cta');
   if('IntersectionObserver' in window && cta){
     new IntersectionObserver(function(es){
@@ -611,7 +546,6 @@ img{display:block;max-width:100%}
     }).observe(cta);
   } else { fab.classList.add('show'); }
 
-  /* frase que acende palavra por palavra */
   var stm=document.querySelector('.statement'), words=[];
   if(stm){
     var txt=stm.textContent.trim().split(/\s+/); stm.textContent='';
@@ -622,11 +556,9 @@ img{display:block;max-width:100%}
     if(reduce) words.forEach(function(w){w.classList.add('on');});
   }
 
-  /* "DO PEDIDO / AO AR." entra dos dois lados conforme a rolagem */
   var split=document.querySelector('.split');
   var sl=split&&split.querySelector('.sl'), sr=split&&split.querySelector('.sr');
 
-  /* cases: a rolagem VERTICAL empilha os cards na horizontal */
   var hs=document.getElementById('hs'), stack=document.getElementById('stack');
   var cards=stack?[].slice.call(stack.children):[], N=cards.length;
   var hsn=document.getElementById('hsn'), hsTxt=document.getElementById('hsTxt'), hsHint=document.getElementById('hsHint');
@@ -659,8 +591,6 @@ img{display:block;max-width:100%}
     });
     prevB.addEventListener('click',function(){goTo(Math.round(Pc)-1);});
     nextB.addEventListener('click',function(){goTo(Math.round(Pc)+1);});
-    /* gesto lateral (trackpad / mouse) tambem avanca os projetos */
-    /* arrastar de lado (dedo ou mouse) move a mesma animacao: 1 gesto lateral = rolagem vertical equivalente */
     var kx=function(){return STEP*pinEl.offsetHeight/(Math.min(window.innerWidth,1040)*.45);};
     hs.addEventListener('wheel',function(e){
       if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){ e.preventDefault(); window.scrollBy({top:e.deltaX*kx(),behavior:'instant'}); settle(); }
@@ -726,11 +656,9 @@ img{display:block;max-width:100%}
   hsSize();
   if(hs&&N&&!reduce){ hsTarget(); Pc=Pt; hsPaint(); }
   window.addEventListener('resize',function(){
-    if(window.innerWidth===lastW) return; /* a barra do navegador mexe so na altura: ignora */
-    lastW=window.innerWidth; hsSize(); hsTarget();
+    if(window.innerWidth===lastW) return;    lastW=window.innerWidth; hsSize(); hsTarget();
   });
 
-  /* origem do visitante (?utm_source=...) e rastreio de cliques */
   var qs=new URLSearchParams(location.search);
   var src=qs.get('utm_source');
   if(src){
