@@ -60,8 +60,10 @@ img{display:block;max-width:100%}
 .pill.pill-demo:hover{background:#ff7d1a;border-color:#ff7d1a}
 .pill-ghost{border-color:var(--line);color:var(--text)}
 .pill-ghost:hover{background:var(--card2);color:var(--text);border-color:var(--mut)}
+.totop{display:flex;width:max-content;align-items:center;gap:8px;margin:28px auto 0;min-height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--line);font-size:14px;font-weight:700;transition:border-color .25s,color .25s,transform .25s var(--ease)}
+.totop:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px)}
 .foot-logo{display:block;margin:14px auto 0;height:26px;width:auto}
-.foot-gif{display:block;width:96px;height:96px;margin:30px auto 0;image-rendering:pixelated}
+.foot-gif{display:block;width:96px;height:96px;margin:22px auto 0;image-rendering:pixelated}
 @media(max-width:520px){
   .top{top:8px;left:8px;right:8px;border-radius:16px}
   .top-in{height:56px;padding-inline:10px;gap:6px}
@@ -562,6 +564,7 @@ img{display:block;max-width:100%}
       <div><strong>Quer ver mais do meu trabalho?</strong><span>Portfólio completo, projetos e certificados</span></div>
       <em aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></em>
     </a>
+    <a class="totop" href="#inicio">Voltar ao topo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></a>
     <img class="foot-gif" src="Giuseppe.gif" alt="Giuseppe programando em sua mesa" width="96" height="96" loading="lazy">
     <img class="foot-logo" src="parrini-dev-logo-dark.svg" alt="Parrini Dev" width="125" height="30" loading="lazy">
     <p class="copy">© 2026 Parrini Dev</p>
