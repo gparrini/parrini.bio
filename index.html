@@ -54,11 +54,10 @@ img{display:block;max-width:100%}
 .top{position:fixed;top:12px;left:12px;right:12px;z-index:50;max-width:1096px;margin-inline:auto;background:rgba(13,13,13,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 .top-in{display:flex;align-items:center;justify-content:space-between;gap:10px;height:64px;padding-inline:16px}
 .brand{display:flex;align-items:center;gap:10px;height:100%}
-.top-gif{height:100%;width:auto;aspect-ratio:1;image-rendering:pixelated}
+.top-gif{height:100%;padding:2px 0;width:auto;aspect-ratio:1;image-rendering:pixelated}
 .nav{display:flex;align-items:center;gap:8px}
 .pill.pill-demo{background:var(--orange);color:var(--bg);border-color:var(--orange)}
 .pill.pill-demo:hover{background:#ff7d1a;border-color:#ff7d1a}
-.pill-ico{display:none}
 .pill-ghost{border-color:var(--line);color:var(--text)}
 .pill-ghost:hover{background:var(--card2);color:var(--text);border-color:var(--mut)}
 .foot-logo{display:block;margin:14px auto 0;height:26px;width:auto}
@@ -67,10 +66,7 @@ img{display:block;max-width:100%}
   .top{top:8px;left:8px;right:8px;border-radius:16px}
   .top-in{height:56px;padding-inline:10px;gap:6px}
     .brand{gap:6px}
-  .top .pill{white-space:nowrap;min-height:38px;padding:0 13px;font-size:12px}
-  .top .pill-ghost{padding:0;width:38px;justify-content:center}
-  .pill-ghost .pill-txt{display:none}
-  .pill-ghost .pill-ico{display:block}
+  .top .pill{white-space:nowrap;min-height:38px;padding:0 12px;font-size:12px}
   .nav{gap:6px}
   .hero{padding-top:108px}
 }
@@ -103,6 +99,7 @@ img{display:block;max-width:100%}
   radial-gradient(60% 50% at 85% 10%,var(--glow),transparent 70%),
   radial-gradient(40% 40% at 0% 100%,rgba(240,106,0,.08),transparent 70%)}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
+.hero-logo img{height:clamp(38px,5.4vw,52px);width:auto}
 .kicker{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--mut)}
 .kicker i{width:38px;height:1px;background:var(--orange)}
 .h1{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(54px,15.4vw,118px);line-height:.86;letter-spacing:.005em;margin:18px 0 22px}
@@ -167,16 +164,19 @@ img{display:block;max-width:100%}
 .custom{margin-top:22px;font-size:15px;color:var(--ink-mut)}
 .custom a{color:var(--ink);font-weight:700;border-bottom:2px solid var(--orange)}
 
-/* ---------- cases: cards empilhados na horizontal ---------- */
+/* ---------- cases: carrossel horizontal (a rolagem vertical segue normal) ---------- */
 .hs{position:relative}
-.hs-pin{position:relative;width:100vw;margin:34px 0 0 calc(50% - 50vw);overflow:hidden;overflow:clip}
-.stack{display:grid;gap:18px;width:min(1040px,100% - 2*var(--gut));margin-inline:auto}
-.scard{position:relative;display:flex;flex-direction:column;gap:20px;padding:clamp(20px,3vw,40px);border-radius:28px;background:#f3efe7;color:var(--ink);box-shadow:0 24px 60px rgba(0,0,0,.45);overflow:hidden}
-.scard::after{content:"";position:absolute;inset:0;background:#000;opacity:var(--dim,0);pointer-events:none;border-radius:inherit}
+.hs-pin{position:relative;width:100vw;margin:34px 0 0 calc(50% - 50vw)}
+.stack{--pad:max(var(--gut),calc(50% - 520px));display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);padding:6px var(--pad) 22px;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;cursor:grab}
+.stack::-webkit-scrollbar{display:none}
+.stack.drag{scroll-snap-type:none;cursor:grabbing;user-select:none}
+.stack.drag a{pointer-events:none}
+.scard{position:relative;flex:0 0 min(1040px,calc(100vw - 2*var(--gut) - 28px));scroll-snap-align:start;display:flex;flex-direction:column;gap:20px;padding:clamp(20px,3vw,40px);border-radius:28px;background:#f3efe7;color:var(--ink);box-shadow:0 24px 60px rgba(0,0,0,.35)}
 .sc-text{display:flex;flex-direction:column;gap:14px;min-width:0}
-.sc-num{font-family:var(--display);font-size:clamp(54px,9vh,110px);line-height:.85;color:var(--orange)}
-.scard h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(40px,7.4vh,76px);line-height:.92}
-.scard p{color:var(--ink-mut);font-size:clamp(14px,1.9vh,17px);max-width:30em}
+.sc-head{display:flex;align-items:baseline;gap:12px}
+.sc-num{font-family:var(--display);font-size:clamp(54px,7vw,100px);line-height:.85;color:var(--orange)}
+.scard h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(38px,6vw,72px);line-height:.92}
+.scard p{color:var(--ink-mut);font-size:16px;max-width:30em}
 .scard .tags span{border-color:rgba(13,13,18,.18);color:#3a3a4a}
 .scard .tags span.hot{border-color:var(--orange);color:#b04a00}
 .scard a.go{margin-top:auto;display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:15px;color:var(--ink);border-bottom:2px solid var(--orange);align-self:flex-start;padding-bottom:2px}
@@ -186,8 +186,8 @@ img{display:block;max-width:100%}
 .bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:#18181b}
 .bar i{width:8px;height:8px;border-radius:50%;background:#3f3f46}
 .url{flex:1;margin-left:8px;padding:5px 12px;border-radius:999px;background:var(--bg);color:var(--mut);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.shot{aspect-ratio:800/667;background:linear-gradient(135deg,#1e1e24,#18181f);position:relative;overflow:hidden;flex:1;min-height:0}
-.shot img{width:100%;height:100%;object-fit:contain;object-position:center}
+.shot{aspect-ratio:800/667;background:linear-gradient(135deg,#1e1e24,#18181f);position:relative;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:contain;object-position:center;-webkit-user-drag:none;user-select:none}
 .shot.noimg img{display:none}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{padding:4px 10px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--mut)}
@@ -196,26 +196,20 @@ img{display:block;max-width:100%}
 .scard-cta p{color:#3a1c00;font-weight:500}
 .scard-cta .tags span{border-color:rgba(13,13,18,.4);color:var(--ink)}
 .scard-cta .btn{align-self:flex-start;margin-top:6px}
-.cta-art{display:none;flex-direction:column;align-items:center;justify-content:center;gap:22px;border-radius:20px;background:var(--bg);padding:24px}
-.cta-gif{width:min(240px,32vh);height:auto;aspect-ratio:1;image-rendering:pixelated}
 .scard-cta .sc-text{justify-content:center}
-.hs-count{display:none;position:absolute;left:0;right:0;bottom:12px;text-align:center;font-size:12px;letter-spacing:.2em;color:var(--mut)}
+.cta-art{display:none;flex-direction:column;align-items:center;justify-content:center;gap:22px;border-radius:20px;background:var(--bg);padding:24px}
+.cta-gif{width:min(240px,100%);height:auto;aspect-ratio:1;image-rendering:pixelated}
+.hs-ctl{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:6px}
+.hs-ctl button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);display:grid;place-items:center;cursor:pointer;transition:border-color .25s,opacity .25s,background .25s}
+.hs-ctl button:hover:not(:disabled){border-color:var(--orange);background:var(--card2)}
+.hs-ctl button:disabled{opacity:.3;cursor:default}
+.hs-ctl svg{width:20px;height:20px}
+.hs-count{min-width:64px;text-align:center;font-size:13px;letter-spacing:.2em;color:var(--mut)}
 .hs-count b{color:var(--orange)}
-.hs-on .hs-pin{position:sticky;top:0;height:100vh;height:100svh;margin-top:0}
-.hs-on .stack{position:absolute;display:block;top:96px;bottom:52px;left:0;right:0;margin:auto;height:auto}
-.hs-on .scard{position:absolute;inset:0;will-change:transform;transform-origin:left center}
-.hs-on .hs-count{display:block}
 @media(min-width:900px){
   .scard{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:stretch;gap:clamp(20px,3vw,44px)}
-  .scard .frame{align-self:center;max-height:100%}
+  .scard .frame{align-self:center}
   .scard-cta .cta-art{display:flex}
-}
-@media(max-width:899px){
-  .hs-on .scard{gap:12px;padding:18px}
-  .hs-on .sc-num{display:inline;font-size:44px}
-  .hs-on .scard h3{font-size:clamp(34px,5.6vh,50px)}
-  .sc-head{display:flex;align-items:baseline;gap:12px}
-  .scard .frame{flex:1;min-height:0}
 }
 /* ---------- depoimentos (oculto até ter falas reais) ---------- */
 .quotes{display:grid;gap:16px;margin-top:40px}
@@ -290,13 +284,10 @@ img{display:block;max-width:100%}
 
 <header class="top">
   <div class="wrap top-in">
-    <div class="brand">
-      <a class="logo" href="#inicio" aria-label="Parrini Dev, voltar ao início"><img src="parrini-dev-logo-dark.svg" alt="Parrini Dev" width="117" height="28"></a>
-      <img class="top-gif" src="Giuseppe.gif" alt="" width="64" height="64">
-    </div>
+    <div class="brand"><img class="top-gif" src="Giuseppe.gif" alt="Giuseppe Parrini, desenvolvedor" width="64" height="64"></div>
     <nav class="nav">
-      <a class="pill pill-ghost" href="https://gparrini.github.io/parrini.dev/" aria-label="Portfólio"><span class="pill-txt">Portfólio</span><svg class="ic pill-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></a>
-      <a class="pill pill-demo" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site.">Pedir demo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+      <a class="pill pill-ghost" href="https://gparrini.github.io/parrini.dev/" aria-label="Portfólio">Portfólio</a>
+      <a class="pill pill-demo" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site.">Quero meu site <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
     </nav>
   </div>
 </header>
@@ -307,7 +298,7 @@ img{display:block;max-width:100%}
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="kicker rv"><i></i>Estúdio de sites / Brasília</p>
+        <p class="hero-logo rv"><img src="parrini-dev-logo-dark.svg" alt="Parrini Dev, estúdio de sites em Brasília" width="167" height="40"></p>
         <h1 class="h1" aria-label="Sites que vendem pelo WhatsApp">
           <span class="ln" aria-hidden="true"><span style="--i:0">Sites que</span></span>
           <span class="ln" aria-hidden="true"><span style="--i:1" class="or">vendem</span></span>
@@ -406,7 +397,7 @@ img{display:block;max-width:100%}
 
       <div class="hs" id="hs">
       <div class="hs-pin">
-      <div class="stack" id="stack">
+      <div class="stack" id="stack" tabindex="0" aria-label="Projetos, deslize para o lado">
         <article class="scard">
           <div class="sc-text">
             <div class="sc-head"><span class="sc-num">01</span></div>
@@ -483,7 +474,11 @@ img{display:block;max-width:100%}
           <div class="cta-art"><img class="cta-gif" src="Giuseppe.gif" alt="" width="64" height="64"><img src="parrini-dev-logo-dark.svg" alt="Parrini Dev" width="188" height="45"></div>
         </article>
       </div>
-      <div class="hs-count" aria-hidden="true"><b id="hsn">01</b> / 06</div>
+      <div class="hs-ctl">
+        <button type="button" id="hsPrev" aria-label="Projeto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+        <span class="hs-count" aria-hidden="true"><b id="hsn">01</b> / 06</span>
+        <button type="button" id="hsNext" aria-label="Próximo projeto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
       </div>
       </div>
     </div>
@@ -561,6 +556,14 @@ img{display:block;max-width:100%}
   /* EDITAR: seu número do WhatsApp (DDI + DDD + número, sem símbolos) */
   var NUM='5561984474187';
 
+  /* EDITAR: cole aqui o ID de medição do Google Analytics 4 (formato G-XXXXXXXXXX). Vazio = sem rastreio. */
+  var GA_ID='';
+  if(GA_ID){
+    var gs=document.createElement('script'); gs.async=true; gs.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; document.head.appendChild(gs);
+    window.dataLayer=window.dataLayer||[]; window.gtag=function(){dataLayer.push(arguments);};
+    gtag('js',new Date()); gtag('config',GA_ID);
+  }
+
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var clamp=function(v){return Math.min(1,Math.max(0,v));};
 
@@ -601,17 +604,74 @@ img{display:block;max-width:100%}
   var split=document.querySelector('.split');
   var sl=split&&split.querySelector('.sl'), sr=split&&split.querySelector('.sr');
 
-  /* cases: a rolagem vertical empilha os cards na horizontal */
-  var hs=document.getElementById('hs'), stack=document.getElementById('stack'), hsn=document.getElementById('hsn');
-  var cards=stack?[].slice.call(stack.children):[], N=cards.length;
-  function hsSize(){
-    if(!hs||reduce||!N){return;}
-    hs.classList.add('hs-on');
-    hs.style.height=Math.round(window.innerHeight*(1+(N-1)*.8))+'px';
+  /* cases: carrossel nativo (arrastar, deslizar ou usar as setas) */
+  var stack=document.getElementById('stack'), hsn=document.getElementById('hsn');
+  var prevB=document.getElementById('hsPrev'), nextB=document.getElementById('hsNext');
+  if(stack){
+    var slides=[].slice.call(stack.children);
+    var stepW=function(){return slides[0].getBoundingClientRect().width+18;};
+    var cur=function(){return Math.max(0,Math.min(slides.length-1,Math.round(stack.scrollLeft/stepW())));};
+    var upd=function(){
+      var n=cur();
+      if(hsn) hsn.textContent='0'+(n+1);
+      prevB.disabled=n===0; nextB.disabled=n===slides.length-1;
+    };
+    var go=function(n){stack.scrollTo({left:Math.max(0,Math.min(slides.length-1,n))*stepW(),behavior:reduce?'auto':'smooth'});};
+    stack.addEventListener('scroll',upd,{passive:true});
+    prevB.addEventListener('click',function(){go(cur()-1);});
+    nextB.addEventListener('click',function(){go(cur()+1);});
+    stack.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'){e.preventDefault();go(cur()+1);}
+      if(e.key==='ArrowLeft'){e.preventDefault();go(cur()-1);}
+    });
+    /* arrastar com o mouse (no toque, o navegador já desliza) */
+    var down=false,sx=0,sl=0,moved=false;
+    stack.addEventListener('pointerdown',function(e){
+      if(e.pointerType!=='mouse'||e.button!==0) return;
+      down=true;moved=false;sx=e.clientX;sl=stack.scrollLeft;
+    });
+    window.addEventListener('pointermove',function(e){
+      if(!down) return;
+      var dx=e.clientX-sx;
+      if(!moved&&Math.abs(dx)>5){moved=true;stack.classList.add('drag');}
+      if(moved) stack.scrollLeft=sl-dx;
+    });
+    window.addEventListener('pointerup',function(){
+      if(!down) return; down=false;
+      if(moved){stack.classList.remove('drag');go(cur());}
+    });
+    window.addEventListener('resize',upd);
+    upd();
   }
-  hsSize();
-  window.addEventListener('resize',hsSize);
-  var ease=function(t){return 1-Math.pow(1-t,3);};
+
+  /* origem do visitante (?utm_source=...) e rastreio de cliques */
+  var qs=new URLSearchParams(location.search);
+  var src=qs.get('utm_source');
+  if(src){
+    document.querySelectorAll('[data-msg]').forEach(function(a){
+      a.href='https://wa.me/'+NUM+'?text='+encodeURIComponent(a.getAttribute('data-msg')+'\n\n(origem: '+src+')');
+    });
+  }
+  var UTM={utm_source:'parrini-bio',utm_medium:'referral',utm_campaign:'estudio-de-sites'};
+  document.querySelectorAll('a[href^="http"]').forEach(function(a){
+    if(a.href.indexOf('wa.me')>-1) return;
+    try{
+      var u=new URL(a.href);
+      Object.keys(UTM).forEach(function(k){ if(!u.searchParams.has(k)) u.searchParams.set(k,UTM[k]); });
+      a.href=u.toString();
+    }catch(e){}
+  });
+  function track(name,a){
+    if(typeof gtag!=='function') return;
+    var sec=a.closest('section,header,footer,.fab');
+    gtag('event',name,{link_text:(a.textContent||'').trim().slice(0,40),secao:sec?(sec.id||sec.className.split(' ')[0]):'topo'});
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]'); if(!a) return;
+    if(a.href.indexOf('wa.me')>-1) track('whatsapp_click',a);
+    else if(a.href.indexOf('parrini.dev')>-1) track('portfolio_click',a);
+    else if(a.classList.contains('go')) track('case_click',a);
+  });
 
   var ticking=false;
   function frame(){
@@ -627,19 +687,6 @@ img{display:block;max-width:100%}
       var e=1-clamp((vh-q.top)/(vh*.8));
       sl.style.transform='translate3d('+(-e*38)+'vw,0,0)';
       sr.style.transform='translate3d('+(e*38)+'vw,0,0)';
-    }
-    if(hs && !reduce && N){
-      var h=hs.getBoundingClientRect(), tot=hs.offsetHeight-vh;
-      var P=clamp(-h.top/tot)*(N-1), w=window.innerWidth, peek=w<900?7:22;
-      var arr=cards.map(function(c,i){return i?ease(clamp(P-(i-1))):1;});
-      cards.forEach(function(c,i){
-        var d=0; for(var k=i+1;k<N;k++) d+=arr[k];
-        var dd=Math.min(d,4);
-        c.style.zIndex=i+1;
-        c.style.transform='translate3d('+((1-arr[i])*w*1.1-dd*peek)+'px,0,0) scale('+(1-dd*.035)+')';
-        c.style.setProperty('--dim',Math.min(d,3)*.16);
-      });
-      if(hsn) hsn.textContent='0'+(Math.round(P)+1);
     }
     ticking=false;
   }
