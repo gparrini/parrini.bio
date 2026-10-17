@@ -56,13 +56,31 @@ img{display:block;max-width:100%}
 .brand{display:flex;align-items:center;gap:10px;height:100%}
 .top-gif{height:100%;width:auto;aspect-ratio:1;image-rendering:pixelated}
 .nav{display:flex;align-items:center;gap:8px}
+.pill.pill-demo{background:var(--orange);color:var(--bg);border-color:var(--orange)}
+.pill.pill-demo:hover{background:#ff7d1a;border-color:#ff7d1a}
+.pill-ico{display:none}
 .pill-ghost{border-color:var(--line);color:var(--text)}
 .pill-ghost:hover{background:var(--card2);color:var(--text);border-color:var(--mut)}
 .foot-gif{display:block;width:96px;height:96px;margin:30px auto 0;image-rendering:pixelated}
-@media(max-width:520px){.logo-mark{display:none}.pill{padding:0 12px;font-size:12px}.top-in{padding-inline:12px}}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.06em;font-size:13px}
+@media(max-width:520px){
+  .top{top:8px;left:8px;right:8px;border-radius:16px}
+  .top-in{height:56px;padding-inline:10px;gap:6px}
+  .top .logo-mark{display:none}
+  .top .logo{font-size:12px;white-space:nowrap}
+  .brand{gap:6px}
+  .top .pill{white-space:nowrap;min-height:38px;padding:0 13px;font-size:12px}
+  .top .pill-ghost{padding:0;width:38px;justify-content:center}
+  .pill-ghost .pill-txt{display:none}
+  .pill-ghost .pill-ico{display:block}
+  .nav{gap:6px}
+  .hero{padding-top:108px}
+}
+@media(max-width:359px){.logo>span:last-child{display:none}}
+.logo{white-space:nowrap;display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.06em;font-size:13px}
 .logo b{color:var(--orange)}
 .logo-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--card);border:1px solid var(--line);font-size:11px;letter-spacing:0}
+.ic{width:1.15em;height:1.15em;flex-shrink:0}
+.ic-s{width:.95em;height:.95em;margin-left:4px;vertical-align:-1px}
 .pill{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(240,106,0,.55);color:var(--orange);font-size:13px;font-weight:700;transition:background .25s,color .25s}
 .pill:hover{background:var(--orange);color:var(--bg)}
 
@@ -150,15 +168,21 @@ img{display:block;max-width:100%}
 .custom a{color:var(--ink);font-weight:700;border-bottom:2px solid var(--orange)}
 
 /* ---------- cases ---------- */
-.cases{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:44px}
+.hs{position:relative}
+.hs-pin{display:flex;align-items:center;overflow:hidden;overflow:clip;width:100vw;margin:30px 0 0 calc(50% - 50vw)}
+.cases{display:flex;gap:18px;padding:6px var(--gut) 18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;width:100%}
+.cases::-webkit-scrollbar{display:none}
+.cases>.case{flex:0 0 min(340px,80vw);scroll-snap-align:center}
+.hs-on .hs-pin{position:sticky;top:0;height:100vh;height:100svh;margin-top:0}
+.hs-on .cases{overflow:visible;width:max-content;scroll-snap-type:none;will-change:transform}
 .case{display:flex;flex-direction:column;gap:14px}
 .frame{border-radius:18px;overflow:hidden;background:#111;border:1px solid var(--line);transition:transform .4s var(--ease),border-color .3s}
 .case:hover .frame{transform:translateY(-4px);border-color:rgba(240,106,0,.5)}
 .bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:#18181b}
 .bar i{width:8px;height:8px;border-radius:50%;background:#3f3f46}
 .url{flex:1;margin-left:8px;padding:5px 12px;border-radius:999px;background:var(--bg);color:var(--mut);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.shot{aspect-ratio:16/10;background:linear-gradient(135deg,#1e1e24,#18181f);position:relative;overflow:hidden}
-.shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.shot{aspect-ratio:800/667;background:linear-gradient(135deg,#1e1e24,#18181f);position:relative;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:contain;object-position:center}
 .shot.noimg img{display:none}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{padding:4px 10px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--mut)}
@@ -168,7 +192,8 @@ img{display:block;max-width:100%}
 .case .result{color:#fff;font-weight:700}
 .case a.go{margin-top:auto;font-weight:700;font-size:14px;color:var(--orange)}
 .case a.go:hover{text-decoration:underline}
-.case-cta{justify-content:center;align-items:flex-start;padding:28px;border-radius:18px;border:1.5px dashed #3f3f46;min-height:280px}
+.case .priv{margin-top:auto;font-size:14px;color:var(--mut)}
+.case-cta{justify-content:center;align-items:flex-start;padding:28px;border-radius:18px;border:1.5px dashed #3f3f46;align-self:stretch}
 .case-cta h3{font-size:42px}
 
 /* ---------- depoimentos (oculto até ter falas reais) ---------- */
@@ -207,7 +232,7 @@ img{display:block;max-width:100%}
 .port:hover{border-color:var(--orange);transform:translateY(-2px)}
 .port strong{display:block;font-size:17px}
 .port span{color:var(--mut);font-size:14px}
-.port em{font-style:normal;color:var(--orange);font-size:26px}
+.port em{font-style:normal;color:var(--orange);font-size:26px;display:grid}
 .copy{margin-top:22px;color:#71717a;font-size:12px;text-align:center}
 
 /* ---------- botão flutuante ---------- */
@@ -221,7 +246,7 @@ img{display:block;max-width:100%}
   .hero-grid{grid-template-columns:minmax(0,1.7fr) minmax(0,.6fr);align-items:end;gap:48px}
   .menu{grid-template-columns:repeat(2,minmax(0,1fr))}
   .monthly{grid-template-columns:minmax(0,1fr) auto;align-items:center}
-  .cases{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cases>.case{flex-basis:360px}
   .steps{grid-template-columns:repeat(3,minmax(0,1fr))}
   .step{grid-template-columns:minmax(0,1fr)}
   .quotes{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -250,8 +275,8 @@ img{display:block;max-width:100%}
       <img class="top-gif" src="Giuseppe.gif" alt="" width="64" height="64">
     </div>
     <nav class="nav">
-      <a class="pill pill-ghost" href="https://gparrini.github.io/parrini.dev/">Portfólio</a>
-      <a class="pill" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site.">Pedir demo <span aria-hidden="true">↗</span></a>
+      <a class="pill pill-ghost" href="https://gparrini.github.io/parrini.dev/" aria-label="Portfólio"><span class="pill-txt">Portfólio</span><svg class="ic pill-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></a>
+      <a class="pill pill-demo" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site.">Pedir demo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
     </nav>
   </div>
 </header>
@@ -270,8 +295,8 @@ img{display:block;max-width:100%}
         </h1>
         <p class="lead rv" style="--d:.45s">Catálogo, landing page e bio link para o seu comércio. Você vê uma <strong>demo com o nome do seu negócio</strong> antes de decidir, e no catálogo atualiza produtos e preços sozinho, pelo painel.</p>
         <div class="hero-cta rv" style="--d:.6s">
-          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site para o meu negócio.">Pedir minha demo <span aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="#cardapio">Ver cardápio <span aria-hidden="true">↓</span></a>
+          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site para o meu negócio.">Pedir minha demo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+          <a class="btn btn-ghost" href="#cardapio">Ver cardápio <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4H10a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H3.5A1.5 1.5 0 0 1 2 16.5z"/><path d="M22 5.5A1.5 1.5 0 0 0 20.5 4H14a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg></a>
         </div>
       </div>
 
@@ -311,7 +336,7 @@ img{display:block;max-width:100%}
           <h3 class="desire">Quero um cartão de visita digital</h3>
           <p class="desc">Uma página com seus links, WhatsApp e redes, pronta para a bio do Instagram.</p>
           <div class="price"><small>a partir de</small><strong>R$ 150</strong></div>
-          <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Bio link*. Pode me mandar uma demo?">Pedir esse <span aria-hidden="true">→</span></a>
+          <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Bio link*. Pode me mandar uma demo?">Pedir esse <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
         </article>
 
         <article class="item rv" style="--d:.08s">
@@ -319,7 +344,7 @@ img{display:block;max-width:100%}
           <h3 class="desire">Quero uma página para vender meu produto</h3>
           <p class="desc">Uma página única, direta, com a oferta e o botão para o cliente chamar no WhatsApp.</p>
           <div class="price"><small>a partir de</small><strong>R$ 350</strong></div>
-          <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero uma *Landing page* para o meu negócio. Pode me mandar uma demo?">Pedir esse <span aria-hidden="true">→</span></a>
+          <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero uma *Landing page* para o meu negócio. Pode me mandar uma demo?">Pedir esse <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
         </article>
 
         <article class="item feat rv" style="--d:.16s">
@@ -328,7 +353,7 @@ img{display:block;max-width:100%}
           <p class="name">Catálogo com painel</p>
           <p class="desc">Seus produtos em uma vitrine online, com carrinho que termina no WhatsApp e um painel simples para você atualizar estoque e preço.</p>
           <div class="price"><small>a partir de</small><strong>R$ 800</strong></div>
-          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Catálogo com painel* para receber pedidos no WhatsApp. Pode me mandar uma demo?">Pedir esse <span aria-hidden="true">→</span></a>
+          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Catálogo com painel* para receber pedidos no WhatsApp. Pode me mandar uma demo?">Pedir esse <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
         </article>
 
         <article class="item rv" style="--d:.24s">
@@ -336,7 +361,7 @@ img{display:block;max-width:100%}
           <h3 class="desire">Quero um site completo para minha empresa</h3>
           <p class="desc">Várias seções, identidade do seu negócio e o caminho até o WhatsApp em cada uma delas.</p>
           <div class="price"><small>valor</small><strong>sob orçamento</strong></div>
-          <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Site institucional*. Podemos conversar sobre o orçamento?">Pedir orçamento <span aria-hidden="true">→</span></a>
+          <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Site institucional*. Podemos conversar sobre o orçamento?">Pedir orçamento <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
         </article>
       </div>
 
@@ -346,7 +371,7 @@ img{display:block;max-width:100%}
           <h3>Mensalidade <em>a partir de R$ 100</em></h3>
           <p>Seu site no ar sem você se preocupar: suporte pelo WhatsApp, pequenos ajustes todo mês e backup. O domínio fica no seu nome.</p>
         </div>
-        <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero saber como funciona a mensalidade do site (suporte, ajustes e backup).">Quero saber mais <span aria-hidden="true">→</span></a>
+        <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero saber como funciona a mensalidade do site (suporte, ajustes e backup).">Quero saber mais <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
       </div>
 
       <p class="custom rv">Tem uma ideia fora do cardápio? <a href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Tenho uma ideia fora do cardápio e queria conversar com você.">Me conta no WhatsApp</a>.</p>
@@ -359,38 +384,65 @@ img{display:block;max-width:100%}
       <p class="label rv"><b>02</b> / No ar</p>
       <h2 class="h2 rv">Sites que já estão <span class="or">trabalhando</span></h2>
 
-      <div class="cases">
-        <article class="case rv">
+      <div class="hs" id="hs">
+      <div class="hs-pin"><div class="cases" id="casetrack">
+        <article class="case">
           <div class="frame">
             <div class="bar"><i></i><i></i><i></i><span class="url">iloogdelivery.com.br</span></div>
-            <div class="shot"><img src="https://gparrini.github.io/parrini.dev/imagens/iloog.webp" alt="Site da iLoog Delivery" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+            <div class="shot"><img src="imagens/iloog.webp" alt="iLoog Delivery" width="800" height="667" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
           </div>
           <div class="tags"><span>Landing page</span><span>Cliente real</span><span class="hot">Refeito na v2</span></div>
           <h3>iLoog Delivery</h3>
           <p>Landing page para delivery, refeita na versão 2 a pedido do cliente.</p>
-          <!-- EDITAR: quando tiver um número real, tire o hidden e escreva o resultado -->
-          <p class="result" hidden>Resultado: [número real aqui]</p>
-          <a class="go" href="https://iloogdelivery.com.br/" target="_blank" rel="noopener">Ver no ar ↗</a>
+          <a class="go" href="https://iloogdelivery.com.br/" target="_blank" rel="noopener">Ver no ar <svg class="ic ic-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
         </article>
-
-        <article class="case rv" style="--d:.1s">
+        <article class="case">
           <div class="frame">
             <div class="bar"><i></i><i></i><i></i><span class="url">bio-skull.vercel.app</span></div>
-            <div class="shot"><img src="https://gparrini.github.io/parrini.dev/imagens/skull.webp" alt="Catálogo da Skull Multimarcas" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+            <div class="shot"><img src="imagens/skull.webp" alt="Skull Multimarcas" width="800" height="667" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
           </div>
           <div class="tags"><span>Bio link</span><span>Catálogo</span><span class="hot">Cliente real</span></div>
           <h3>Skull Multimarcas</h3>
           <p>Começou como bio link e virou catálogo com painel de administração, pensado para circular pelo WhatsApp.</p>
-          <p class="result" hidden>Resultado: [número real aqui]</p>
-          <a class="go" href="https://bio-skull.vercel.app/" target="_blank" rel="noopener">Ver no ar ↗</a>
+          <a class="go" href="https://bio-skull.vercel.app/" target="_blank" rel="noopener">Ver no ar <svg class="ic ic-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
         </article>
-
-        <article class="case case-cta rv" style="--d:.2s">
+        <article class="case">
+          <div class="frame">
+            <div class="bar"><i></i><i></i><i></i><span class="url">bolao26-psi.vercel.app</span></div>
+            <div class="shot"><img src="imagens/bolao.webp" alt="Bolão 2026" width="800" height="667" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+          </div>
+          <div class="tags"><span>Web app</span><span class="hot">PWA</span></div>
+          <h3>Bolão 2026</h3>
+          <p>Aplicativo de bolão que se instala no celular, com palpites e ranking entre os participantes.</p>
+          <a class="go" href="https://bolao26-psi.vercel.app/" target="_blank" rel="noopener">Ver no ar <svg class="ic ic-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+        </article>
+        <article class="case">
+          <div class="frame">
+            <div class="bar"><i></i><i></i><i></i><span class="url">sistema interno</span></div>
+            <div class="shot"><img src="imagens/mecanica.webp" alt="Mecânica S.A" width="800" height="667" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+          </div>
+          <div class="tags"><span>Painel</span><span class="hot">Gestão</span></div>
+          <h3>Mecânica S.A</h3>
+          <p>Sistema de gestão com painel para controlar o dia a dia do negócio.</p>
+          <span class="go priv">Projeto privado</span>
+        </article>
+        <article class="case">
+          <div class="frame">
+            <div class="bar"><i></i><i></i><i></i><span class="url">sistema interno</span></div>
+            <div class="shot"><img src="imagens/senai.webp" alt="Contratos SENAI" width="800" height="667" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+          </div>
+          <div class="tags"><span>Sistema web</span><span class="hot">Automação</span></div>
+          <h3>Contratos SENAI</h3>
+          <p>Sistema web para controle de contratos, feito durante meu estágio no SENAI/CNI.</p>
+          <span class="go priv">Projeto privado</span>
+        </article>
+        <article class="case case-cta">
           <div class="tags"><span class="hot">Próximo case</span></div>
           <h3>O próximo pode ser o seu negócio</h3>
           <p>Me conta o que você vende e eu preparo uma demo com o nome da sua loja.</p>
-          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seus cases e quero uma demo para o meu negócio.">Quero minha demo <span aria-hidden="true">→</span></a>
+          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seus cases e quero uma demo para o meu negócio.">Quero minha demo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
         </article>
+      </div></div>
       </div>
     </div>
   </section>
@@ -440,7 +492,7 @@ img{display:block;max-width:100%}
     <div class="wrap">
       <h2 class="rv">Bora colocar seu negócio no ar?</h2>
       <p class="rv" style="--d:.1s">Me chama no WhatsApp e peça sua demo. Sem compromisso.</p>
-      <a class="btn btn-dark rv" style="--d:.2s" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero colocar meu negócio no ar. Pode me mandar uma demo?">Chamar no WhatsApp <span aria-hidden="true">→</span></a>
+      <a class="btn btn-dark rv" style="--d:.2s" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero colocar meu negócio no ar. Pode me mandar uma demo?">Chamar no WhatsApp <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
     </div>
   </section>
 
@@ -450,7 +502,7 @@ img{display:block;max-width:100%}
   <div class="wrap">
     <a class="port" href="https://gparrini.github.io/parrini.dev/">
       <div><strong>Quer ver mais do meu trabalho?</strong><span>Portfólio completo, projetos e certificados</span></div>
-      <em aria-hidden="true">→</em>
+      <em aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></em>
     </a>
     <img class="foot-gif" src="Giuseppe.gif" alt="Giuseppe programando em sua mesa" width="96" height="96" loading="lazy">
     <p class="copy">© 2026 Parrini Dev</p>
@@ -458,7 +510,7 @@ img{display:block;max-width:100%}
 </footer>
 
 <div class="fab" id="fab">
-  <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site.">Pedir demo no WhatsApp <span aria-hidden="true">→</span></a>
+  <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site.">Pedir demo no WhatsApp <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
 </div>
 
 <script>
@@ -506,6 +558,18 @@ img{display:block;max-width:100%}
   var split=document.querySelector('.split');
   var sl=split&&split.querySelector('.sl'), sr=split&&split.querySelector('.sr');
 
+  /* cases: a rolagem vertical move os cards na horizontal */
+  var hs=document.getElementById('hs'), cs=document.getElementById("casetrack"), hsMax=0;
+  function hsSize(){
+    if(!hs||reduce){return;}
+    hs.classList.add('hs-on');
+    hsMax=Math.max(0,cs.scrollWidth-window.innerWidth);
+    hs.style.height=(hsMax+window.innerHeight)+'px';
+  }
+  hsSize();
+  window.addEventListener('load',hsSize);
+  window.addEventListener('resize',hsSize);
+
   var ticking=false;
   function frame(){
     var vh=window.innerHeight;
@@ -520,6 +584,10 @@ img{display:block;max-width:100%}
       var e=1-clamp((vh-q.top)/(vh*.8));
       sl.style.transform='translate3d('+(-e*38)+'vw,0,0)';
       sr.style.transform='translate3d('+(e*38)+'vw,0,0)';
+    }
+    if(hs && !reduce && hsMax){
+      var h=hs.getBoundingClientRect();
+      cs.style.transform='translate3d('+(-clamp(-h.top/hsMax)*hsMax)+'px,0,0)';
     }
     ticking=false;
   }
