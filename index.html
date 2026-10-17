@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Parrini Dev | Estúdio de Sites</title>
+<meta name="description" content="Sites que vendem pelo WhatsApp: bio link, landing page e catálogo com painel para o seu comércio. Peça sua demo.">
+<meta name="theme-color" content="#0d0d0d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Parrini Dev | Estúdio de Sites">
+<meta property="og:description" content="Sites que vendem pelo WhatsApp: bio link, landing page e catálogo com painel para o seu comércio.">
+<meta property="og:image" content="https://gparrini.github.io/parrini.dev/imagens/parrini-perfil.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+
+<!--
+  ============================================================
+  O QUE VOCÊ PRECISA EDITAR (procure por "EDITAR" no arquivo)
+  ------------------------------------------------------------
+  1. Preços "a partir de" de cada item do cardápio e da mensalidade
+     (os valores atuais são sugestões, confirme os seus).
+  2. Prazo real no passo 3 de "Como funciona".
+  3. Resultados dos cases (linha com class="result" hidden):
+     tire o atributo hidden quando tiver um número real.
+  4. Depoimentos (section id="depoimentos" hidden): só ative com
+     falas reais de clientes, com autorização.
+  5. Número do WhatsApp: está em uma única constante no <script>.
+  ============================================================
+-->
+
+<style>
+:root{
+  --bg:#0d0d0d; --card:#18181f; --card2:#1e1e24; --line:#27272a;
+  --text:#fff; --mut:#a1a1aa; --orange:#f06a00; --glow:rgba(240,106,0,.18);
+  --light:#e0e0e8; --ink:#0d0d12; --ink-mut:#60607a;
+  --display:'Bebas Neue',Impact,'Arial Narrow',sans-serif;
+  --sans:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --gut:clamp(18px,5vw,40px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.5;overflow-x:hidden;overflow-x:clip;padding-bottom:96px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:var(--gut)}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+
+/* ---------- header ---------- */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(13,13,13,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.top-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.06em;font-size:13px}
+.logo b{color:var(--orange)}
+.logo-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--card);border:1px solid var(--line);font-size:11px;letter-spacing:0}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(240,106,0,.55);color:var(--orange);font-size:13px;font-weight:700;transition:background .25s,color .25s}
+.pill:hover{background:var(--orange);color:var(--bg)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:700;font-size:15px;border:1px solid transparent;transition:transform .25s var(--ease),background .25s,box-shadow .25s}
+.btn:active{transform:scale(.98)}
+.btn-or{background:var(--orange);color:var(--bg);box-shadow:0 10px 36px var(--glow)}
+.btn-or:hover{box-shadow:0 14px 46px rgba(240,106,0,.4);transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--mut)}
+.btn-dark{background:var(--bg);color:var(--text)}
+.btn-dark:hover{transform:translateY(-2px)}
+
+/* ---------- reveal ---------- */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:118px 0 56px;background:
+  radial-gradient(60% 50% at 85% 10%,var(--glow),transparent 70%),
+  radial-gradient(40% 40% at 0% 100%,rgba(240,106,0,.08),transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
+.kicker{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--mut)}
+.kicker i{width:38px;height:1px;background:var(--orange)}
+.h1{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(54px,15.4vw,118px);line-height:.86;letter-spacing:.005em;margin:18px 0 22px}
+.ln{display:block;overflow:hidden;padding-top:.04em}
+.ln>span{display:block;transform:translateY(105%);animation:up 1s var(--ease) forwards;animation-delay:calc(var(--i)*.1s + .15s)}
+@keyframes up{to{transform:none}}
+.or{color:var(--orange)}
+.lead{max-width:34em;color:#d4d4d8;font-size:clamp(16px,2.4vw,19px)}
+.lead strong{color:#fff;font-weight:500}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.profile{display:flex;align-items:center;gap:16px;padding:16px;border-radius:22px;background:var(--card);border:1px solid var(--line)}
+.profile img{width:68px;height:68px;border-radius:50%;object-fit:cover;border:2px solid var(--orange)}
+.profile p{font-size:14px;color:var(--mut);line-height:1.35}
+.profile strong{display:block;color:#fff;font-size:16px}
+.chip{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;background:var(--glow);color:#ffb27a;font-size:12px;font-weight:500}
+
+/* ---------- marquee ---------- */
+.marq-wrap{overflow:hidden;padding:26px 0 8px}
+.marq{background:var(--orange);color:var(--bg);overflow:hidden;border-block:1px solid #000;transform:rotate(-1.2deg);margin:0 -4vw}
+.marq-track{display:flex;width:max-content;animation:marq 30s linear infinite}
+.marq span{font-family:var(--display);font-size:clamp(24px,5vw,34px);letter-spacing:.04em;padding:10px 22px;white-space:nowrap}
+.marq span::after{content:"/";margin-left:44px;opacity:.55}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+.sec{padding:clamp(72px,12vw,130px) 0}
+.label{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--mut);margin-bottom:18px}
+.label b{color:var(--orange);font-weight:700}
+.h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(46px,12.5vw,104px);line-height:.9;max-width:12em}
+.hl{background:var(--orange);color:var(--ink);padding:0 .12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+.statement-sec{padding:clamp(70px,11vw,120px) 0 clamp(40px,8vw,80px)}
+.statement{font-weight:700;font-size:clamp(28px,6.6vw,60px);line-height:1.08;letter-spacing:-.02em;max-width:19em}
+.js .statement span{color:#34343a;transition:color .35s}
+.js .statement span.on{color:#fff}
+
+/* ---------- cardápio (seção clara) ---------- */
+.light{background:var(--light);color:var(--ink)}
+.light .label{color:var(--ink-mut)}
+.menu{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-top:44px}
+.item{display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:26px;background:#fff;color:var(--ink);transition:transform .35s var(--ease),box-shadow .35s}
+.item:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(13,13,18,.14)}
+.item.feat{background:var(--card);color:#fff}
+.item-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mut);font-weight:500}
+.feat .item-top{color:var(--mut)}
+.tag-or{padding:4px 10px;border-radius:999px;background:var(--orange);color:var(--bg);letter-spacing:.08em;font-weight:700}
+.desire{font-family:var(--display);font-size:clamp(34px,8vw,46px);line-height:.95;text-transform:uppercase}
+.name{font-weight:700;font-size:15px}
+.desc{font-size:15px;color:var(--ink-mut)}
+.feat .desc{color:var(--mut)}
+.price{margin-top:auto;display:flex;align-items:baseline;gap:8px;padding-top:6px}
+.price small{font-size:12px;color:var(--ink-mut);letter-spacing:.08em;text-transform:uppercase}
+.feat .price small{color:var(--mut)}
+.price strong{font-family:var(--display);font-weight:400;font-size:44px;line-height:1}
+.item .btn{min-height:48px;width:100%}
+.item:not(.feat) .btn{background:var(--ink);color:#fff}
+.item:not(.feat) .btn:hover{background:#000}
+.monthly{display:grid;gap:18px;margin-top:16px;padding:26px;border-radius:26px;background:var(--bg);color:#fff}
+.monthly h3{font-family:var(--display);font-weight:400;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}
+.monthly h3 em{font-style:normal;color:var(--orange)}
+.monthly p{color:var(--mut);font-size:15px;max-width:34em}
+.custom{margin-top:22px;font-size:15px;color:var(--ink-mut)}
+.custom a{color:var(--ink);font-weight:700;border-bottom:2px solid var(--orange)}
+
+/* ---------- cases ---------- */
+.cases{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:44px}
+.case{display:flex;flex-direction:column;gap:14px}
+.frame{border-radius:18px;overflow:hidden;background:#111;border:1px solid var(--line);transition:transform .4s var(--ease),border-color .3s}
+.case:hover .frame{transform:translateY(-4px);border-color:rgba(240,106,0,.5)}
+.bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:#18181b}
+.bar i{width:8px;height:8px;border-radius:50%;background:#3f3f46}
+.url{flex:1;margin-left:8px;padding:5px 12px;border-radius:999px;background:var(--bg);color:var(--mut);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot{aspect-ratio:16/10;background:linear-gradient(135deg,#1e1e24,#18181f);position:relative;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.shot.noimg img{display:none}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{padding:4px 10px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--mut)}
+.tags span.hot{border-color:rgba(240,106,0,.5);color:#ffb27a}
+.case h3{font-family:var(--display);font-weight:400;font-size:34px;line-height:1;text-transform:uppercase}
+.case p{color:var(--mut);font-size:15px}
+.case .result{color:#fff;font-weight:700}
+.case a.go{margin-top:auto;font-weight:700;font-size:14px;color:var(--orange)}
+.case a.go:hover{text-decoration:underline}
+.case-cta{justify-content:center;align-items:flex-start;padding:28px;border-radius:18px;border:1.5px dashed #3f3f46;min-height:280px}
+.case-cta h3{font-size:42px}
+
+/* ---------- depoimentos (oculto até ter falas reais) ---------- */
+.quotes{display:grid;gap:16px;margin-top:40px}
+.quote{padding:26px;border-radius:22px;background:var(--card);border:1px solid var(--line)}
+.quote p{font-size:18px;line-height:1.4}
+.quote cite{display:block;margin-top:14px;font-style:normal;color:var(--mut);font-size:14px}
+
+/* ---------- como funciona ---------- */
+.split{position:relative;overflow:hidden;overflow:clip;padding:8px 0 0}
+.split .sl,.split .sr{display:block;font-family:var(--display);text-transform:uppercase;line-height:.84;font-size:clamp(78px,24vw,250px);will-change:transform}
+.split .sr{text-align:right;color:var(--orange)}
+.steps{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:40px;counter-reset:s}
+.step{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:24px;border-radius:24px;background:var(--card);border:1px solid var(--line)}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--display);font-size:56px;line-height:.9;color:var(--orange)}
+.step h3{font-size:19px;margin-bottom:4px}
+.step p{color:var(--mut);font-size:15px}
+
+/* ---------- quem faz ---------- */
+.who{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:center}
+.who-img{border-radius:28px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;max-width:420px;background:var(--card)}
+.who-img img{width:100%;height:100%;object-fit:cover}
+.who h2{font-family:var(--display);font-weight:400;font-size:clamp(46px,11vw,84px);line-height:.92;text-transform:uppercase;margin-bottom:16px}
+.who p{color:#d4d4d8;max-width:32em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chips span{padding:7px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;color:#e4e4e7}
+
+/* ---------- cta final ---------- */
+.final{background:var(--orange);color:var(--bg);padding:clamp(64px,11vw,120px) 0;text-align:left}
+.final h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(54px,15vw,150px);line-height:.88;max-width:10em}
+.final p{margin:18px 0 28px;font-size:18px;max-width:28em;font-weight:500}
+
+/* ---------- footer ---------- */
+.foot{padding:48px 0 28px}
+.port{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 24px;border-radius:22px;background:var(--card);border:1px solid var(--line);transition:border-color .3s,transform .3s var(--ease)}
+.port:hover{border-color:var(--orange);transform:translateY(-2px)}
+.port strong{display:block;font-size:17px}
+.port span{color:var(--mut);font-size:14px}
+.port em{font-style:normal;color:var(--orange);font-size:26px}
+.copy{margin-top:22px;color:#71717a;font-size:12px;text-align:center}
+
+/* ---------- botão flutuante ---------- */
+.fab{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;transform:translate(-50%,160%);transition:transform .5s var(--ease);width:max-content;max-width:calc(100% - 28px)}
+.fab.show{transform:translate(-50%,0)}
+.fab .btn{box-shadow:0 14px 40px rgba(0,0,0,.55),0 10px 36px rgba(240,106,0,.35)}
+
+/* ---------- desktop ---------- */
+@media(min-width:900px){
+  .hero{padding-top:150px}
+  .hero-grid{grid-template-columns:minmax(0,1.7fr) minmax(0,.6fr);align-items:end;gap:48px}
+  .menu{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .monthly{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+  .cases{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .step{grid-template-columns:minmax(0,1fr)}
+  .quotes{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .who{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px}
+}
+
+/* ---------- movimento reduzido ---------- */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .ln>span{animation:none;transform:none}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .marq-track{animation:none}
+  .marq{transform:none}
+  .js .statement span{color:#fff}
+  .split .sl,.split .sr{transform:none!important}
+}
+</style>
+</head>
+
+<body>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="logo" href="#inicio" aria-label="Parrini Dev, voltar ao início"><span class="logo-mark" aria-hidden="true">&lt;/&gt;</span><span>PARRINI <b>DEV</b></span></a>
+    <a class="pill" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site.">Pedir demo <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker rv"><i></i>Estúdio de sites / Brasília</p>
+        <h1 class="h1" aria-label="Sites que vendem pelo WhatsApp">
+          <span class="ln" aria-hidden="true"><span style="--i:0">Sites que</span></span>
+          <span class="ln" aria-hidden="true"><span style="--i:1" class="or">vendem</span></span>
+          <span class="ln" aria-hidden="true"><span style="--i:2">pelo WhatsApp.</span></span>
+        </h1>
+        <p class="lead rv" style="--d:.45s">Catálogo, landing page e bio link para o seu comércio. Você vê uma <strong>demo com o nome do seu negócio</strong> antes de decidir, e no catálogo atualiza produtos e preços sozinho, pelo painel.</p>
+        <div class="hero-cta rv" style="--d:.6s">
+          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site para o meu negócio.">Pedir minha demo <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#cardapio">Ver cardápio <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+
+      <aside class="profile rv" style="--d:.75s">
+        <img src="https://gparrini.github.io/parrini.dev/imagens/parrini-perfil.jpg" alt="Giuseppe Parrini" width="68" height="68">
+        <p><strong>Giuseppe Parrini</strong>Eng. de Software · UFG<br><span class="chip">2º lugar · Hackathon PMI-DF</span></p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="marq-wrap" aria-hidden="true">
+    <div class="marq">
+      <div class="marq-track">
+        <span>Sites</span><span>Catálogo</span><span>Landing page</span><span>Bio link</span><span>Painel</span><span>WhatsApp</span>
+        <span>Sites</span><span>Catálogo</span><span>Landing page</span><span>Bio link</span><span>Painel</span><span>WhatsApp</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FRASE (acende palavra por palavra ao rolar) ===== -->
+  <section class="statement-sec">
+    <div class="wrap">
+      <p class="statement">Seu cliente pesquisa, compara e chama no zap. O seu site precisa estar pronto para esse momento.</p>
+    </div>
+  </section>
+
+  <!-- ===== CARDÁPIO ===== -->
+  <section class="sec light" id="cardapio">
+    <div class="wrap">
+      <p class="label rv"><b>01</b> / Cardápio</p>
+      <h2 class="h2 rv">Escolha o que <span class="hl">você precisa</span></h2>
+
+      <div class="menu">
+        <!-- EDITAR: preços "a partir de" (valores sugeridos, confirme os seus) -->
+        <article class="item rv">
+          <div class="item-top"><span>01</span><span>Bio link</span></div>
+          <h3 class="desire">Quero um cartão de visita digital</h3>
+          <p class="desc">Uma página com seus links, WhatsApp e redes, pronta para a bio do Instagram.</p>
+          <div class="price"><small>a partir de</small><strong>R$ 150</strong></div>
+          <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Bio link*. Pode me mandar uma demo?">Pedir esse <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="item rv" style="--d:.08s">
+          <div class="item-top"><span>02</span><span>Landing page</span></div>
+          <h3 class="desire">Quero uma página para vender meu produto</h3>
+          <p class="desc">Uma página única, direta, com a oferta e o botão para o cliente chamar no WhatsApp.</p>
+          <div class="price"><small>a partir de</small><strong>R$ 350</strong></div>
+          <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero uma *Landing page* para o meu negócio. Pode me mandar uma demo?">Pedir esse <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="item feat rv" style="--d:.16s">
+          <div class="item-top"><span>03</span><span class="tag-or">Destaque</span></div>
+          <h3 class="desire">Quero receber pedidos no zap</h3>
+          <p class="name">Catálogo com painel</p>
+          <p class="desc">Seus produtos em uma vitrine online, com carrinho que termina no WhatsApp e um painel simples para você atualizar estoque e preço.</p>
+          <div class="price"><small>a partir de</small><strong>R$ 800</strong></div>
+          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Catálogo com painel* para receber pedidos no WhatsApp. Pode me mandar uma demo?">Pedir esse <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="item rv" style="--d:.24s">
+          <div class="item-top"><span>04</span><span>Site institucional</span></div>
+          <h3 class="desire">Quero um site completo para minha empresa</h3>
+          <p class="desc">Várias seções, identidade do seu negócio e o caminho até o WhatsApp em cada uma delas.</p>
+          <div class="price"><small>valor</small><strong>sob orçamento</strong></div>
+          <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Site institucional*. Podemos conversar sobre o orçamento?">Pedir orçamento <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+
+      <!-- EDITAR: valor da mensalidade -->
+      <div class="monthly rv">
+        <div>
+          <h3>Mensalidade <em>a partir de R$ 100</em></h3>
+          <p>Seu site no ar sem você se preocupar: suporte pelo WhatsApp, pequenos ajustes todo mês e backup. O domínio fica no seu nome.</p>
+        </div>
+        <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero saber como funciona a mensalidade do site (suporte, ajustes e backup).">Quero saber mais <span aria-hidden="true">→</span></a>
+      </div>
+
+      <p class="custom rv">Tem uma ideia fora do cardápio? <a href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Tenho uma ideia fora do cardápio e queria conversar com você.">Me conta no WhatsApp</a>.</p>
+    </div>
+  </section>
+
+  <!-- ===== CASES ===== -->
+  <section class="sec" id="cases">
+    <div class="wrap">
+      <p class="label rv"><b>02</b> / No ar</p>
+      <h2 class="h2 rv">Sites que já estão <span class="or">trabalhando</span></h2>
+
+      <div class="cases">
+        <article class="case rv">
+          <div class="frame">
+            <div class="bar"><i></i><i></i><i></i><span class="url">iloogdelivery.com.br</span></div>
+            <div class="shot"><img src="https://gparrini.github.io/parrini.dev/imagens/iloog.webp" alt="Site da iLoog Delivery" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+          </div>
+          <div class="tags"><span>Landing page</span><span>Cliente real</span><span class="hot">Refeito na v2</span></div>
+          <h3>iLoog Delivery</h3>
+          <p>Landing page para delivery, refeita na versão 2 a pedido do cliente.</p>
+          <!-- EDITAR: quando tiver um número real, tire o hidden e escreva o resultado -->
+          <p class="result" hidden>Resultado: [número real aqui]</p>
+          <a class="go" href="https://iloogdelivery.com.br/" target="_blank" rel="noopener">Ver no ar ↗</a>
+        </article>
+
+        <article class="case rv" style="--d:.1s">
+          <div class="frame">
+            <div class="bar"><i></i><i></i><i></i><span class="url">bio-skull.vercel.app</span></div>
+            <div class="shot"><img src="https://gparrini.github.io/parrini.dev/imagens/skull.webp" alt="Catálogo da Skull Multimarcas" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+          </div>
+          <div class="tags"><span>Bio link</span><span>Catálogo</span><span class="hot">Cliente real</span></div>
+          <h3>Skull Multimarcas</h3>
+          <p>Começou como bio link e virou catálogo com painel de administração, pensado para circular pelo WhatsApp.</p>
+          <p class="result" hidden>Resultado: [número real aqui]</p>
+          <a class="go" href="https://bio-skull.vercel.app/" target="_blank" rel="noopener">Ver no ar ↗</a>
+        </article>
+
+        <article class="case case-cta rv" style="--d:.2s">
+          <div class="tags"><span class="hot">Próximo case</span></div>
+          <h3>O próximo pode ser o seu negócio</h3>
+          <p>Me conta o que você vende e eu preparo uma demo com o nome da sua loja.</p>
+          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seus cases e quero uma demo para o meu negócio.">Quero minha demo <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEPOIMENTOS (EDITAR: tire o hidden só com falas reais e autorizadas) ===== -->
+  <section class="sec" id="depoimentos" hidden>
+    <div class="wrap">
+      <p class="label"><b>03</b> / Quem já pediu</p>
+      <div class="quotes">
+        <figure class="quote"><p>“[fala real do cliente]”</p><cite>[Nome] · [Negócio]</cite></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMO FUNCIONA ===== -->
+  <section class="sec" id="como" style="padding-top:0">
+    <div class="split" aria-hidden="true">
+      <span class="sl">Do pedido</span>
+      <span class="sr">ao ar.</span>
+    </div>
+    <div class="wrap">
+      <h2 class="label" style="margin-top:44px"><b>03</b> / Como funciona</h2>
+      <ol class="steps" style="list-style:none">
+        <li class="step rv"><div><h3>Conversa rápida</h3><p>Você me conta o que vende e como seus clientes chegam até você, direto pelo WhatsApp.</p></div></li>
+        <li class="step rv" style="--d:.1s"><div><h3>Você vê a demo</h3><p>Eu monto um protótipo com o nome do seu negócio. Só fecha se gostar do que viu.</p></div></li>
+        <!-- EDITAR: coloque seu prazo real aqui -->
+        <li class="step rv" style="--d:.2s"><div><h3>No ar, com prazo combinado</h3><p>Publico, deixo o domínio no seu nome e te ensino a usar o painel. O prazo vai por escrito antes de começar.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== QUEM FAZ ===== -->
+  <section class="sec" id="quem" style="padding-top:0">
+    <div class="wrap who">
+      <div class="who-img rv"><img src="https://gparrini.github.io/parrini.dev/imagens/parrini-perfil.jpg" alt="Giuseppe Parrini" loading="lazy"></div>
+      <div class="rv" style="--d:.1s">
+        <p class="label"><b>04</b> / Quem faz</p>
+        <h2>Oi, eu sou o Giuseppe.</h2>
+        <p>Estudo Engenharia de Software na UFG e faço estágio no SENAI/CNI. Você fala direto comigo, do primeiro papo ao suporte depois de entregue, sem intermediário.</p>
+        <div class="chips"><span>UFG · Eng. de Software</span><span>SENAI/CNI</span><span>2º lugar · Hackathon PMI-DF</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="final">
+    <div class="wrap">
+      <h2 class="rv">Bora colocar seu negócio no ar?</h2>
+      <p class="rv" style="--d:.1s">Me chama no WhatsApp e peça sua demo. Sem compromisso.</p>
+      <a class="btn btn-dark rv" style="--d:.2s" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero colocar meu negócio no ar. Pode me mandar uma demo?">Chamar no WhatsApp <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="port" href="https://gparrini.github.io/parrini.dev/">
+      <div><strong>Quer ver mais do meu trabalho?</strong><span>Portfólio completo, projetos e certificados</span></div>
+      <em aria-hidden="true">→</em>
+    </a>
+    <p class="copy">© 2026 Parrini Dev</p>
+  </div>
+</footer>
+
+<div class="fab" id="fab">
+  <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site.">Pedir demo no WhatsApp <span aria-hidden="true">→</span></a>
+</div>
+
+<script>
+(function(){
+  /* EDITAR: seu número do WhatsApp (DDI + DDD + número, sem símbolos) */
+  var NUM='5561984474187';
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clamp=function(v){return Math.min(1,Math.max(0,v));};
+
+  /* links do WhatsApp com mensagem pronta (sem JS, o link abre a conversa normal) */
+  document.querySelectorAll('[data-msg]').forEach(function(a){
+    a.href='https://wa.me/'+NUM+'?text='+encodeURIComponent(a.getAttribute('data-msg'));
+  });
+
+  /* aparecer ao rolar */
+  var rv=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach(function(el){io.observe(el);});
+  } else { rv.forEach(function(el){el.classList.add('in');}); }
+
+  /* botão flutuante: aparece quando os botões do topo saem da tela */
+  var fab=document.getElementById('fab'), cta=document.querySelector('.hero-cta');
+  if('IntersectionObserver' in window && cta){
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){ fab.classList.toggle('show', !e.isIntersecting && e.boundingClientRect.top<0); });
+    }).observe(cta);
+  } else { fab.classList.add('show'); }
+
+  /* frase que acende palavra por palavra */
+  var stm=document.querySelector('.statement'), words=[];
+  if(stm){
+    var txt=stm.textContent.trim().split(/\s+/); stm.textContent='';
+    txt.forEach(function(w,i){
+      var s=document.createElement('span'); s.textContent=w; stm.appendChild(s); words.push(s);
+      if(i<txt.length-1) stm.appendChild(document.createTextNode(' '));
+    });
+    if(reduce) words.forEach(function(w){w.classList.add('on');});
+  }
+
+  /* "DO PEDIDO / AO AR." entra dos dois lados conforme a rolagem */
+  var split=document.querySelector('.split');
+  var sl=split&&split.querySelector('.sl'), sr=split&&split.querySelector('.sr');
+
+  var ticking=false;
+  function frame(){
+    var vh=window.innerHeight;
+    if(stm && !reduce){
+      var r=stm.getBoundingClientRect();
+      var p=clamp((vh*.88-r.top)/(vh*.55+r.height*.6));
+      var n=Math.round(p*words.length);
+      words.forEach(function(w,i){w.classList.toggle('on',i<n);});
+    }
+    if(split && !reduce){
+      var q=split.getBoundingClientRect();
+      var e=1-clamp((vh-q.top)/(vh*.8));
+      sl.style.transform='translate3d('+(-e*38)+'vw,0,0)';
+      sr.style.transform='translate3d('+(e*38)+'vw,0,0)';
+    }
+    ticking=false;
+  }
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  frame();
+})();
+</script>
+</body>
+</html>
