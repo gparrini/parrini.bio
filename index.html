@@ -10,6 +10,7 @@
 <meta property="og:title" content="Parrini Dev | Estúdio de Sites">
 <meta property="og:description" content="Sites que vendem pelo WhatsApp: bio link, landing page e catálogo com painel para o seu comércio.">
 <meta property="og:image" content="https://gparrini.github.io/parrini.dev/imagens/parrini-perfil.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f06a00'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='13' font-weight='700' text-anchor='middle' fill='white'%3E%26lt%3B/%26gt%3B%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -87,10 +88,11 @@ img{display:block;max-width:100%}
 .lead{max-width:34em;color:#d4d4d8;font-size:clamp(16px,2.4vw,19px)}
 .lead strong{color:#fff;font-weight:500}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.profile{display:flex;align-items:center;gap:16px;padding:16px;border-radius:22px;background:var(--card);border:1px solid var(--line)}
+.profile{display:grid;grid-template-columns:68px 1fr;align-items:center;gap:16px;padding:16px;border-radius:22px;background:var(--card);border:1px solid var(--line)}
 .profile img{width:68px;height:68px;border-radius:50%;object-fit:cover;border:2px solid var(--orange)}
 .profile p{font-size:14px;color:var(--mut);line-height:1.35}
 .profile strong{display:block;color:#fff;font-size:16px}
+.gif{grid-column:1/-1;width:100%;max-width:280px;height:auto;aspect-ratio:1;justify-self:center;image-rendering:pixelated;border-radius:16px;background:var(--card2)}
 .chip{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;background:var(--glow);color:#ffb27a;font-size:12px;font-weight:500}
 
 /* ---------- marquee ---------- */
@@ -263,7 +265,8 @@ img{display:block;max-width:100%}
 
       <aside class="profile rv" style="--d:.75s">
         <img src="https://gparrini.github.io/parrini.dev/imagens/parrini-perfil.jpg" alt="Giuseppe Parrini" width="68" height="68">
-        <p><strong>Giuseppe Parrini</strong>Eng. de Software · UFG<br><span class="chip">2º lugar · Hackathon PMI-DF</span></p>
+        <p><strong>Giuseppe Parrini</strong>Eng. de Software · UFG</p>
+        <img class="gif" src="Giuseppe.gif" alt="Giuseppe programando em sua mesa" width="256" height="256">
       </aside>
     </div>
   </section>
@@ -416,7 +419,7 @@ img{display:block;max-width:100%}
         <p class="label"><b>04</b> / Quem faz</p>
         <h2>Oi, eu sou o Giuseppe.</h2>
         <p>Estudo Engenharia de Software na UFG e faço estágio no SENAI/CNI. Você fala direto comigo, do primeiro papo ao suporte depois de entregue, sem intermediário.</p>
-        <div class="chips"><span>UFG · Eng. de Software</span><span>SENAI/CNI</span><span>2º lugar · Hackathon PMI-DF</span></div>
+        <div class="chips"><span>UFG · Eng. de Software</span><span>SENAI/CNI</span></div>
       </div>
     </div>
   </section>
