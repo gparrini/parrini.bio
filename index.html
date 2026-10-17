@@ -226,6 +226,8 @@ img{display:block;max-width:100%}
   .scard-cta .cta-art{display:flex}
 }
 @media(max-width:899px){
+  .top{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(13,13,13,.94)}
+  .scard{box-shadow:none}
   .hs-on .scard{gap:12px;padding:18px}
   .hs-on .scard h3{font-size:clamp(32px,5.4vh,48px)}
   .hs-on .sc-num{font-size:40px}
@@ -629,13 +631,15 @@ img{display:block;max-width:100%}
   var cards=stack?[].slice.call(stack.children):[], N=cards.length;
   var hsn=document.getElementById('hsn'), hsTxt=document.getElementById('hsTxt'), hsHint=document.getElementById('hsHint');
   var prevB=document.getElementById('hsPrev'), nextB=document.getElementById('hsNext'), rail=document.getElementById('hsRail');
-  var dims=[], dots=[], Pc=0, Pt=0, raf=0, STEP=.75;
+  var dims=[], dots=[], Pc=0, Pt=0, raf=0, STEP=.75, pinEl=hs&&hs.querySelector('.hs-pin'), lastW=window.innerWidth, memo=[];
+  var coarse=window.matchMedia('(pointer:coarse)').matches;
   var ease=function(t){return 1-Math.pow(1-t,3);};
-  function pageY(n){ return hs.getBoundingClientRect().top+window.pageYOffset+(n/(N-1))*(hs.offsetHeight-window.innerHeight); }
+  function pageY(n){ return hs.getBoundingClientRect().top+window.pageYOffset+(n/(N-1))*(hs.offsetHeight-pinEl.offsetHeight); }
   function goTo(n){ window.scrollTo({top:pageY(Math.max(0,Math.min(N-1,n))),behavior:reduce?'auto':'smooth'}); }
   var settleT=0;
   function settle(){
     clearTimeout(settleT);
+    if(coarse) return;
     settleT=setTimeout(function(){
       if(!document.body.classList.contains('in-hs')||gid!==null) return;
       var f=Math.abs(Pt-Math.round(Pt));
@@ -645,7 +649,7 @@ img{display:block;max-width:100%}
   function hsSize(){
     if(!hs||reduce||!N){return;}
     hs.classList.add('hs-on');
-    hs.style.height=Math.round(window.innerHeight*(1+(N-1)*STEP))+'px';
+    hs.style.height=Math.round(pinEl.offsetHeight*(1+(N-1)*STEP))+'px';
   }
   if(hs&&N&&!reduce){
     cards.forEach(function(c,i){
@@ -657,7 +661,7 @@ img{display:block;max-width:100%}
     nextB.addEventListener('click',function(){goTo(Math.round(Pc)+1);});
     /* gesto lateral (trackpad / mouse) tambem avanca os projetos */
     /* arrastar de lado (dedo ou mouse) move a mesma animacao: 1 gesto lateral = rolagem vertical equivalente */
-    var kx=function(){return STEP*window.innerHeight/(Math.min(window.innerWidth,1040)*.45);};
+    var kx=function(){return STEP*pinEl.offsetHeight/(Math.min(window.innerWidth,1040)*.45);};
     hs.addEventListener('wheel',function(e){
       if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){ e.preventDefault(); window.scrollBy({top:e.deltaX*kx(),behavior:'instant'}); settle(); }
     },{passive:false});
@@ -669,11 +673,11 @@ img{display:block;max-width:100%}
         if(Math.abs(x-gx)<6&&Math.abs(y-gy)<6) return;
         gdir=Math.abs(x-gx)>Math.abs(y-gy)?'h':'v';
       }
-      if(gdir==='h'){ if(e.cancelable) e.preventDefault(); window.scrollBy({top:-(x-gl)*kx(),behavior:'instant'}); gl=x; hs.classList.add('dragging'); }
+      if(gdir==='h'){ window.scrollBy({top:-(x-gl)*kx(),behavior:'instant'}); gl=x; hs.classList.add('dragging'); }
     }
     function gEnd(){ if(gid===null) return; var was=gdir==='h'; gid=null; hs.classList.remove('dragging'); if(was){ hsTarget(); goTo(Math.round(Pt)); } }
     hs.addEventListener('touchstart',function(e){gStart(e.touches[0].clientX,e.touches[0].clientY,'t');},{passive:true});
-    hs.addEventListener('touchmove',function(e){gMove(e.touches[0].clientX,e.touches[0].clientY,e);},{passive:false});
+    hs.addEventListener('touchmove',function(e){gMove(e.touches[0].clientX,e.touches[0].clientY,e);},{passive:true});
     hs.addEventListener('touchend',gEnd);
     hs.addEventListener('touchcancel',gEnd);
     hs.addEventListener('mousedown',function(e){ if(e.button===0&&!e.target.closest('a,button')){ gStart(e.clientX,e.clientY,'m'); } });
@@ -686,15 +690,21 @@ img{display:block;max-width:100%}
     cards.forEach(function(c,i){
       var d=0; for(var k=i+1;k<N;k++) d+=arr[k];
       var dd=Math.min(d,4);
-      c.style.zIndex=i+1;
-      c.style.transform='translate3d('+((1-arr[i])*w*1.1-dd*peek)+'px,0,0) scale('+(1-dd*.035)+')';
-      dims[i].style.opacity=Math.min(d,3)*.16;
+      var tf='translate3d('+Math.round(((1-arr[i])*w*1.1-dd*peek)*10)/10+'px,0,0)'+(coarse?'':' scale('+Math.round((1-dd*.035)*1000)/1000+')');
+      var op=Math.round(Math.min(d,3)*16)/100;
+      var m=memo[i]||(memo[i]={});
+      if(m.tf!==tf){c.style.transform=tf;m.tf=tf;}
+      if(m.op!==op){dims[i].style.opacity=op;m.op=op;}
+      if(!m.z){c.style.zIndex=i+1;m.z=1;}
     });
     var n=Math.round(Pc);
-    hsn.textContent='0'+(n+1)+' / 0'+N;
-    prevB.disabled=n===0; nextB.disabled=n===N-1;
-    hsTxt.textContent=n===0?'Role para baixo':(n===N-1?'Continue rolando':'Role: ↑ volta · ↓ avança');
-    dots.forEach(function(d,i){d.classList.toggle('on',i===n);});
+    if(memo.n!==n){
+      memo.n=n;
+      hsn.textContent='0'+(n+1)+' / 0'+N;
+      prevB.disabled=n===0; nextB.disabled=n===N-1;
+      hsTxt.textContent=n===0?'Role para baixo':(n===N-1?'Continue rolando':'Role: ↑ volta · ↓ avança');
+      dots.forEach(function(d,i){d.classList.toggle('on',i===n);});
+    }
   }
   function hsLoop(){
     Pc+=(Pt-Pc)*.28;
@@ -704,15 +714,21 @@ img{display:block;max-width:100%}
   }
   function hsTarget(){
     if(!hs||reduce||!N) return;
-    var h=hs.getBoundingClientRect(), tot=hs.offsetHeight-window.innerHeight;
+    var h=hs.getBoundingClientRect(), tot=hs.offsetHeight-pinEl.offsetHeight;
     Pt=clamp(-h.top/tot)*(N-1);
-    document.body.classList.toggle('in-hs',h.top<=40&&h.bottom>=window.innerHeight*.6);
-    if(!raf) raf=requestAnimationFrame(hsLoop);
+    var inn=h.top<=40&&h.bottom>=pinEl.offsetHeight*.6;
+    if(memo.inhs!==inn){memo.inhs=inn;document.body.classList.toggle('in-hs',inn);}
+    if(coarse){
+      if(!raf) raf=requestAnimationFrame(function(){raf=0;Pc=Pt;hsPaint();});
+    } else if(!raf) raf=requestAnimationFrame(hsLoop);
     settle();
   }
   hsSize();
   if(hs&&N&&!reduce){ hsTarget(); Pc=Pt; hsPaint(); }
-  window.addEventListener('resize',function(){hsSize();hsTarget();});
+  window.addEventListener('resize',function(){
+    if(window.innerWidth===lastW) return; /* a barra do navegador mexe so na altura: ignora */
+    lastW=window.innerWidth; hsSize(); hsTarget();
+  });
 
   /* origem do visitante (?utm_source=...) e rastreio de cliques */
   var qs=new URLSearchParams(location.search);
