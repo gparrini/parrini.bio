@@ -3,147 +3,137 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Parrini Dev | Estúdio de Sites</title>
-<meta name="description" content="Sites que vendem pelo WhatsApp: bio link, landing page e catálogo com painel para o seu comércio. Peça sua demo.">
+<title>Parrini Dev | Soluções digitais sob medida</title>
+<meta name="description" content="Sites, sistemas e automações sob medida para o seu negócio vender mais. Veja uma prévia com o nome do seu negócio antes de decidir.">
 <meta name="theme-color" content="#0d0d0d">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Parrini Dev | Estúdio de Sites">
-<meta property="og:description" content="Sites que vendem pelo WhatsApp: bio link, landing page e catálogo com painel para o seu comércio.">
+<meta property="og:title" content="Parrini Dev | Soluções digitais sob medida">
+<meta property="og:description" content="Sites, sistemas e automações sob medida para o seu negócio vender mais.">
 <meta property="og:image" content="https://gparrini.github.io/parrini.dev/imagens/parrini-perfil.jpg">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f06a00'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='13' font-weight='700' text-anchor='middle' fill='white'%3E%26lt%3B/%26gt%3B%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
-
 <style>
 :root{
-  --bg:#0d0d0d; --card:#18181f; --card2:#1e1e24; --line:#27272a;
-  --text:#fff; --mut:#a1a1aa; --orange:#f06a00; --glow:rgba(240,106,0,.18);
-  --light:#e0e0e8; --ink:#0d0d12; --ink-mut:#60607a;
-  --display:'Bebas Neue',Impact,'Arial Narrow',sans-serif;
-  --sans:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --ease:cubic-bezier(.2,.7,.2,1);
-  --gut:clamp(18px,5vw,40px);
+  --bg:#0d0d0d; --card:#141414; --card2:#1a1a1a; --line:#262626;
+  --text:#fff; --mut:#a1a1aa; --or:#f06a00; --or2:#ff8a2a; --glow:rgba(240,106,0,.18);
+  --paper:#f2efe9; --ink:#0d0d12; --ink-mut:#5f5f70;
+  --h:'Anybody','Archivo Black',Impact,sans-serif; --sans:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1); --gut:clamp(16px,5vw,40px);
+  --ul:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 10 C 52 4, 128 2, 197 7' fill='none' stroke='%23f06a00' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.5;overflow-x:hidden;overflow-x:clip;padding-bottom:96px;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.5;overflow-x:hidden;overflow-x:clip;padding-bottom:90px;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 .wrap{max-width:1120px;margin-inline:auto;padding-inline:var(--gut)}
-:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
-
-.top{position:fixed;top:12px;left:12px;right:12px;z-index:50;max-width:1096px;margin-inline:auto;background:rgba(13,13,13,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.top-in{display:flex;align-items:center;justify-content:space-between;gap:10px;height:64px;padding-inline:16px}
-.brand{display:flex;align-items:center;gap:10px;height:100%}
-.top-gif{height:100%;padding:2px 0;width:auto;aspect-ratio:1;image-rendering:pixelated}
-.nav{display:flex;align-items:center;gap:8px}
-.pill.pill-demo{background:var(--orange);color:var(--bg);border-color:var(--orange)}
-.pill.pill-demo:hover{background:#ff7d1a;border-color:#ff7d1a}
-.pill-ghost{border-color:var(--line);color:var(--text)}
-.pill-ghost:hover{background:var(--card2);color:var(--text);border-color:var(--mut)}
-.totop{display:flex;width:max-content;align-items:center;gap:8px;margin:28px auto 0;min-height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--line);font-size:14px;font-weight:700;transition:border-color .25s,color .25s,transform .25s var(--ease)}
-.totop:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px)}
-.foot-logo{display:block;margin:14px auto 0;height:26px;width:auto}
-.foot-gif{display:block;width:96px;height:96px;margin:22px auto 0;image-rendering:pixelated}
-@media(max-width:520px){
-  .top{top:8px;left:8px;right:8px;border-radius:16px}
-  .top-in{height:56px;padding-inline:10px;gap:6px}
-    .brand{gap:6px}
-  .top .pill{white-space:nowrap;min-height:38px;padding:0 12px;font-size:12px}
-  .nav{gap:6px}
-  .hero{padding-top:108px}
-}
-@media(max-width:349px){.top-gif{display:none}}
-.logo img{display:block;height:28px;width:auto}
-.logo{white-space:nowrap;display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.06em;font-size:13px}
-.logo b{color:var(--orange)}
-.logo-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--card);border:1px solid var(--line);font-size:11px;letter-spacing:0}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px}
 .ic{width:1.15em;height:1.15em;flex-shrink:0}
-.ic-s{width:.95em;height:.95em;margin-left:4px;vertical-align:-1px}
-.pill{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(240,106,0,.55);color:var(--orange);font-size:13px;font-weight:700;transition:background .25s,color .25s}
-.pill:hover{background:var(--orange);color:var(--bg)}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:700;font-size:15px;border:1px solid transparent;transition:transform .25s var(--ease),background .25s,box-shadow .25s}
+/* tipografia */
+.label{font:500 13px var(--mono);letter-spacing:.02em;color:var(--mut);margin-bottom:16px}
+.label::before{content:"// ";color:var(--or);font-weight:700}
+.light .label{color:var(--ink-mut)}
+.h1,.h2,.h3{font-family:var(--h);font-weight:900;font-stretch:115%;letter-spacing:-.035em;line-height:1}
+.h1{font-size:clamp(38px,9.6vw,70px)}
+.h2{font-size:clamp(30px,6.6vw,58px);max-width:14em}
+.h3{font-size:clamp(22px,4.6vw,28px);letter-spacing:-.03em;line-height:1.05}
+.hl{color:var(--or);background:var(--ul) no-repeat left 100%/100% .18em;padding-bottom:.08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.mk{background:var(--or);color:var(--bg);padding:0 .14em;border-radius:.08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.lead{max-width:36em;color:#d4d4d8;font-size:clamp(16px,2.3vw,19px)}
+.lead strong{color:#fff;font-weight:700}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font-weight:700;font-size:15px;border:1px solid transparent;transition:transform .25s var(--ease),background .25s,box-shadow .25s,border-color .25s;text-align:center}
 .btn:active{transform:scale(.98)}
-.btn-or{background:var(--orange);color:var(--bg);box-shadow:0 10px 36px var(--glow)}
+.btn-or{background:var(--or);color:var(--bg);box-shadow:0 10px 36px var(--glow)}
 .btn-or:hover{box-shadow:0 14px 46px rgba(240,106,0,.4);transform:translateY(-2px)}
 .btn-ghost{border-color:var(--line);color:var(--text)}
 .btn-ghost:hover{border-color:var(--mut)}
-.btn-dark{background:var(--bg);color:var(--text)}
+.btn-dark{background:var(--bg);color:#fff}
 .btn-dark:hover{transform:translateY(-2px)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:#000}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 15px;border-radius:999px;border:1px solid var(--line);font-size:13px;font-weight:700;white-space:nowrap;transition:background .25s,border-color .25s,color .25s}
+.pill:hover{border-color:var(--mut)}
+.pill-or{background:var(--or);border-color:var(--or);color:var(--bg)}
+.pill-or:hover{background:#ff7d1a;border-color:#ff7d1a}
 
-.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
 
-.hero{position:relative;padding:128px 0 56px;background:
-  radial-gradient(60% 50% at 85% 10%,var(--glow),transparent 70%),
-  radial-gradient(40% 40% at 0% 100%,rgba(240,106,0,.08),transparent 70%)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
-.hero-logo img{height:clamp(38px,5.4vw,52px);width:auto}
-.kicker{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--mut)}
-.kicker i{width:38px;height:1px;background:var(--orange)}
-.h1{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(54px,15.4vw,118px);line-height:.86;letter-spacing:.005em;margin:18px 0 22px}
-.ln{display:block;overflow:hidden;padding-top:.04em}
-.ln>span{display:block;transform:translateY(105%);animation:up 1s var(--ease) forwards;animation-delay:calc(var(--i)*.1s + .15s)}
-@keyframes up{to{transform:none}}
-.or{color:var(--orange)}
-.lead{max-width:34em;color:#d4d4d8;font-size:clamp(16px,2.4vw,19px)}
-.lead strong{color:#fff;font-weight:500}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.profile{display:flex;align-items:center;gap:16px;padding:16px;border-radius:22px;background:var(--card);border:1px solid var(--line)}
-.profile img{width:68px;height:68px;border-radius:50%;object-fit:cover;border:2px solid var(--orange)}
-.profile p{font-size:14px;color:var(--mut);line-height:1.35}
-.profile strong{display:block;color:#fff;font-size:16px}
-.chip{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;background:var(--glow);color:#ffb27a;font-size:12px;font-weight:500}
+/* topo */
+.top{position:fixed;top:10px;left:10px;right:10px;z-index:50;max-width:1100px;margin-inline:auto;background:rgba(13,13,13,.9);border:1px solid rgba(255,255,255,.1);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+@supports (backdrop-filter:blur(1px)){@media(min-width:900px){.top{background:rgba(13,13,13,.72);backdrop-filter:blur(14px)}}}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:10px;height:60px;padding-inline:12px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand .gif{height:44px;width:44px;image-rendering:pixelated;flex:none}
+.brand .logo{height:24px;width:auto}
+.nav{display:flex;gap:8px}
+@media(max-width:430px){.brand .logo{display:none}.top .pill{min-height:38px;padding:0 12px;font-size:12px}}
 
-.marq-wrap{overflow:hidden;padding:26px 0 8px}
-.marq{background:var(--orange);color:var(--bg);overflow:hidden;border-block:1px solid #000;transform:rotate(-1.2deg);margin:0 -4vw}
-.marq-track{display:flex;width:max-content;animation:marq 30s linear infinite}
-.marq span{font-family:var(--display);font-size:clamp(24px,5vw,34px);letter-spacing:.04em;padding:10px 22px;white-space:nowrap}
-.marq span::after{content:"/";margin-left:44px;opacity:.55}
+/* hero */
+.hero{position:relative;padding:116px 0 54px;overflow:hidden;background:radial-gradient(60% 50% at 88% 6%,var(--glow),transparent 70%),radial-gradient(40% 40% at 0% 100%,rgba(240,106,0,.07),transparent 70%)}
+.codebg{position:absolute;inset:0;font:500 12px/1.9 var(--mono);color:#fff;opacity:.045;white-space:pre;overflow:hidden;pointer-events:none;padding:90px 20px 0;user-select:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:30px;align-items:center}
+.hero .h1{margin:4px 0 20px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.proof{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.proof span{font:500 12px var(--mono);padding:7px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:#d8d8de}
+.proof b{color:var(--or);font-weight:700}
+.art{position:relative;justify-self:center;width:min(300px,72vw)}
+.art .gif{width:100%;height:auto;aspect-ratio:1;image-rendering:pixelated}
+
+/* faixa */
+.marq-wrap{overflow:hidden;padding:20px 0 6px}
+.marq{background:var(--or);color:var(--bg);overflow:hidden;transform:rotate(-1.2deg);margin:0 -4vw}
+.marq-track{display:flex;width:max-content;animation:marq 34s linear infinite}
+.marq span{font:900 clamp(18px,3.6vw,26px)/1 var(--h);font-stretch:115%;letter-spacing:-.02em;padding:14px 20px;white-space:nowrap}
+.marq span::after{content:"//";margin-left:38px;opacity:.5}
 @keyframes marq{to{transform:translateX(-50%)}}
 
-.sec{padding:clamp(72px,12vw,130px) 0}
-.label{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--mut);margin-bottom:18px}
-.label b{color:var(--orange);font-weight:700}
-.h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(46px,12.5vw,104px);line-height:.9;max-width:12em}
-.hl{background:var(--orange);color:var(--ink);padding:0 .12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+/* seções */
+.sec{padding:clamp(64px,11vw,120px) 0}
+.light{background:var(--paper);color:var(--ink)}
+.sub{color:var(--mut);max-width:38em;margin-top:14px;font-size:clamp(15px,2vw,17px)}
+.light .sub{color:var(--ink-mut)}
 
-.statement-sec{padding:clamp(70px,11vw,120px) 0 clamp(40px,8vw,80px)}
-.statement{font-weight:700;font-size:clamp(28px,6.6vw,60px);line-height:1.08;letter-spacing:-.02em;max-width:19em}
-.js .statement span{color:#34343a;transition:color .35s}
-.js .statement span.on{color:#fff}
-
-.light{background:var(--light);color:var(--ink)}
-.light .label{color:var(--ink-mut)}
-.menu{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-top:44px}
-.item{display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:26px;background:#fff;color:var(--ink);transition:transform .35s var(--ease),box-shadow .35s}
-.item:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(13,13,18,.14)}
-.item.feat{background:var(--card);color:#fff}
-.item-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mut);font-weight:500}
-.feat .item-top{color:var(--mut)}
-.tag-or{padding:4px 10px;border-radius:999px;background:var(--orange);color:var(--bg);letter-spacing:.08em;font-weight:700}
-.desire{font-family:var(--display);font-size:clamp(34px,8vw,46px);line-height:.95;text-transform:uppercase}
-.name{font-weight:700;font-size:15px}
-.desc{font-size:15px;color:var(--ink-mut)}
-.feat .desc{color:var(--mut)}
-.price{margin-top:auto;display:flex;align-items:baseline;gap:8px;padding-top:6px}
-.price small{font-size:12px;color:var(--ink-mut);letter-spacing:.08em;text-transform:uppercase}
-.feat .price small{color:var(--mut)}
-.price strong{font-family:var(--display);font-weight:400;font-size:44px;line-height:1}
-.item .btn{min-height:48px;width:100%}
-.item:not(.feat) .btn{background:var(--ink);color:#fff}
-.item:not(.feat) .btn:hover{background:#000}
-.monthly{display:grid;gap:18px;margin-top:16px;padding:26px;border-radius:26px;background:var(--bg);color:#fff}
-.monthly h3{font-family:var(--display);font-weight:400;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}
-.monthly h3 em{font-style:normal;color:var(--orange)}
-.monthly p{color:var(--mut);font-size:15px;max-width:34em}
+/* cardápio por problema */
+.needs{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:38px}
+.need{display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:24px;background:#fff;color:var(--ink);transition:transform .35s var(--ease),box-shadow .35s}
+.need:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(13,13,18,.12)}
+.need.feat{background:var(--ink);color:#fff}
+.need .num{font:700 12px var(--mono);color:var(--or)}
+.need p{color:var(--ink-mut);font-size:15px}
+.need.feat p{color:#b9b9c4}
+.opts{display:grid;gap:8px;margin-top:2px}
+.opt{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid rgba(13,13,18,.1);font-size:14.5px}
+.feat .opt{border-color:rgba(255,255,255,.1)}
+.opt span{font-weight:500}
+.opt em{font:700 13px var(--mono);font-style:normal;color:var(--ink-mut);white-space:nowrap}
+.feat .opt em{color:var(--or2)}
+.need .btn{margin-top:auto;width:100%;min-height:48px}
 .custom{margin-top:22px;font-size:15px;color:var(--ink-mut)}
-.custom a{color:var(--ink);font-weight:700;border-bottom:2px solid var(--orange)}
+.custom a{color:var(--ink);font-weight:700;border-bottom:2px solid var(--or)}
 
+/* mensalidade */
+.monthly{display:grid;gap:16px;margin-top:14px;padding:24px;border-radius:24px;background:var(--bg);color:#fff}
+.monthly h3 em{font-style:normal;color:var(--or)}
+.monthly p{color:var(--mut);font-size:15px;max-width:34em;margin-top:8px}
+
+
+/* cases (empilhamento do site antigo) */
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;max-width:420px}
+.metrics div{background:var(--ink);color:#fff;border-radius:12px;padding:8px 10px}
+.metrics s{display:block;font:500 11px var(--mono);color:#ff6b6b}
+.metrics b{font:900 20px/1.1 var(--h);font-stretch:115%;letter-spacing:-.03em}
+.metrics small{display:block;font:500 10px var(--mono);color:#a1a1aa;text-transform:uppercase;letter-spacing:.06em}
 .hs{position:relative}
 .hs-pin{position:relative;width:100vw;margin:34px 0 0 calc(50% - 50vw)}
 .stack{display:grid;gap:18px;width:min(1040px,100% - 2*var(--gut));margin-inline:auto}
@@ -151,13 +141,13 @@ img{display:block;max-width:100%}
 .dim{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
 .sc-text{display:flex;flex-direction:column;gap:14px;min-width:0}
 .sc-head{display:flex;align-items:baseline;gap:12px}
-.sc-num{font-family:var(--display);font-size:clamp(54px,9vh,100px);line-height:.85;color:var(--orange)}
-.scard h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(38px,7.2vh,72px);line-height:.92}
+.sc-num{font-family:var(--h);font-weight:900;font-stretch:115%;letter-spacing:-.04em;font-size:clamp(44px,7vh,80px);line-height:.85;color:var(--or)}
+.scard h3{font-family:var(--h);font-weight:900;font-stretch:115%;letter-spacing:-.035em;font-size:clamp(28px,5.4vh,50px);line-height:1}
 .scard p{color:var(--ink-mut);font-size:clamp(14px,1.9vh,17px);max-width:30em}
 .scard .tags span{border-color:rgba(13,13,18,.18);color:#3a3a4a}
-.scard .tags span.hot{border-color:var(--orange);color:#b04a00}
-.scard a.go{margin-top:auto;display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:15px;color:var(--ink);border-bottom:2px solid var(--orange);align-self:flex-start;padding-bottom:2px}
-.scard a.go:hover{color:var(--orange)}
+.scard .tags span.hot{border-color:var(--or);color:#b04a00}
+.scard a.go{margin-top:auto;display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:15px;color:var(--ink);border-bottom:2px solid var(--or);align-self:flex-start;padding-bottom:2px}
+.scard a.go:hover{color:var(--or)}
 .scard .priv{margin-top:auto;font-size:14px;color:var(--ink-mut)}
 .frame{border-radius:16px;overflow:hidden;background:#111;border:1px solid rgba(13,13,18,.14);display:flex;flex-direction:column;min-height:0}
 .bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:#18181b}
@@ -168,7 +158,7 @@ img{display:block;max-width:100%}
 .shot.noimg img{display:none}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{padding:4px 10px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--mut)}
-.scard-cta{background:var(--orange);justify-content:center}
+.scard-cta{background:var(--or);justify-content:center}
 .scard-cta .sc-num{color:var(--ink)}
 .scard-cta p{color:#3a1c00;font-weight:500}
 .scard-cta .tags span{border-color:rgba(13,13,18,.4);color:var(--ink)}
@@ -181,16 +171,16 @@ img{display:block;max-width:100%}
 .hs-on .hs-ui{display:flex}
 .hs-bar{z-index:20;position:absolute;left:0;right:0;bottom:12px;align-items:center;justify-content:center;gap:12px;padding-inline:var(--gut)}
 .hs-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(24,24,31,.9);color:var(--text);display:grid;place-items:center;cursor:pointer;transition:border-color .25s,opacity .25s;flex-shrink:0}
-.hs-btn:hover:not(:disabled){border-color:var(--orange)}
+.hs-btn:hover:not(:disabled){border-color:var(--or)}
 .hs-btn:disabled{opacity:.28;cursor:default}
 .hs-btn svg{width:20px;height:20px}
 .hs-hint{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);min-width:0;text-align:center;line-height:1.25}
-.hs-hint b{color:var(--orange);letter-spacing:.16em;font-weight:700}
-.hs-hint svg{width:16px;height:16px;color:var(--orange);flex-shrink:0;animation:nudge 1.4s ease-in-out infinite}
+.hs-hint b{color:var(--or);letter-spacing:.16em;font-weight:700}
+.hs-hint svg{width:16px;height:16px;color:var(--or);flex-shrink:0;animation:nudge 1.4s ease-in-out infinite}
 @keyframes nudge{50%{transform:translateY(4px)}}
 .hs-rail{position:absolute;right:max(10px,calc(50% - 520px - 34px));top:50%;transform:translateY(-50%);flex-direction:column;gap:10px;z-index:20}
 .hs-rail button{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:#3f3f46;cursor:pointer;transition:background .25s,transform .25s}
-.hs-rail button.on{background:var(--orange);transform:scale(1.5)}
+.hs-rail button.on{background:var(--or);transform:scale(1.5)}
 
 .hs-on .hs-pin{touch-action:pan-y;cursor:grab;position:sticky;top:0;height:100vh;height:100svh;margin-top:0;overflow:hidden;overflow:clip}
 .hs.dragging,.hs.dragging *{cursor:grabbing!important;user-select:none}
@@ -205,172 +195,188 @@ img{display:block;max-width:100%}
   .top{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(13,13,13,.94)}
   .scard{box-shadow:none}
   .hs-on .scard{gap:12px;padding:18px}
-  .hs-on .scard h3{font-size:clamp(32px,5.4vh,48px)}
+  .hs-on .scard h3{font-size:clamp(24px,4.2vh,36px)}
   .hs-on .sc-num{font-size:40px}
   .hs-on .sc-text{gap:10px}
   .hs-on .scard p{font-size:14px}
   .hs-rail{display:none!important}
 }
-.quotes{display:grid;gap:16px;margin-top:40px}
-.quote{padding:26px;border-radius:22px;background:var(--card);border:1px solid var(--line)}
-.quote p{font-size:18px;line-height:1.4}
-.quote cite{display:block;margin-top:14px;font-style:normal;color:var(--mut);font-size:14px}
+.in-hs .fab.show{transform:translate(-50%,160%)}
 
-.split{position:relative;overflow:hidden;overflow:clip;padding:8px 0 0}
-.split .sl,.split .sr{display:block;font-family:var(--display);text-transform:uppercase;line-height:.84;font-size:clamp(78px,24vw,250px);will-change:transform}
-.split .sr{text-align:right;color:var(--orange)}
-.steps{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:40px;counter-reset:s}
-.step{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:24px;border-radius:24px;background:var(--card);border:1px solid var(--line)}
-.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--display);font-size:56px;line-height:.9;color:var(--orange)}
-.step h3{font-size:19px;margin-bottom:4px}
-.step p{color:var(--mut);font-size:15px}
+/* como funciona */
+.steps{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-top:36px;counter-reset:s;list-style:none}
+.step{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;padding:22px;border-radius:22px;background:#fff;color:var(--ink)}
+.step::before{counter-increment:s;content:"0" counter(s);font:900 40px/1 var(--h);font-stretch:115%;letter-spacing:-.04em;color:var(--or)}
+.step h3{font-size:18px;margin-bottom:4px}
+.step p{color:var(--ink-mut);font-size:15px}
 
+/* quem faz */
 .who{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:center}
-.who-img{border-radius:28px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;max-width:420px;background:var(--card)}
+.who-img{position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;max-width:400px;background:var(--card)}
 .who-img img{width:100%;height:100%;object-fit:cover}
-.who h2{font-family:var(--display);font-weight:400;font-size:clamp(46px,11vw,84px);line-height:.92;text-transform:uppercase;margin-bottom:16px}
-.who p{color:#d4d4d8;max-width:32em}
+.who p{color:#d4d4d8;max-width:32em;margin-top:16px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .chips span{padding:7px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;color:#e4e4e7}
+.chips span.hot{border-color:var(--or);color:var(--or2)}
 
-.final{background:var(--orange);color:var(--bg);padding:clamp(64px,11vw,120px) 0;text-align:left}
-.final h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(54px,15vw,150px);line-height:.88;max-width:10em}
-.final p{margin:18px 0 28px;font-size:18px;max-width:28em;font-weight:500}
+/* portas */
+.doors{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-top:30px}
+.door{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:22px;background:var(--card);border:1px solid var(--line)}
+.door p{color:var(--mut);font-size:15px}
+.door .btn{align-self:flex-start;min-height:46px;margin-top:6px}
+.door ul{list-style:none;display:grid;gap:6px;margin-top:2px}
+.door li{font-size:14.5px;color:#d4d4d8;padding-left:22px;position:relative}
+.door li::before{content:"//";position:absolute;left:0;top:1px;font:700 12px var(--mono);color:var(--or)}
 
-.foot{padding:48px 0 28px}
-.port{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 24px;border-radius:22px;background:var(--card);border:1px solid var(--line);transition:border-color .3s,transform .3s var(--ease)}
-.port:hover{border-color:var(--orange);transform:translateY(-2px)}
-.port strong{display:block;font-size:17px}
+/* final */
+.final{background:var(--or);color:var(--bg);padding:clamp(60px,10vw,110px) 0}
+.final .h2{max-width:11em}
+.final p{margin:16px 0 26px;font-size:18px;max-width:28em;font-weight:500}
+
+.foot{padding:44px 0 26px}
+.port{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;border-radius:20px;background:var(--card);border:1px solid var(--line);transition:border-color .3s,transform .3s var(--ease)}
+.port:hover{border-color:var(--or);transform:translateY(-2px)}
+.port strong{display:block;font-size:16px}
 .port span{color:var(--mut);font-size:14px}
-.port em{font-style:normal;color:var(--orange);font-size:26px;display:grid}
-.copy{margin-top:22px;color:#71717a;font-size:12px;text-align:center}
+.port em{font-style:normal;color:var(--or);display:grid}
+.foot-gif{display:block;width:88px;height:88px;margin:26px auto 0;image-rendering:pixelated}
+.foot-logo{display:block;margin:12px auto 0;height:26px;width:auto}
+.copy{margin-top:18px;color:#71717a;font-size:12px;text-align:center}
 
 .fab{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;transform:translate(-50%,160%);transition:transform .5s var(--ease);width:max-content;max-width:calc(100% - 28px)}
 .fab.show{transform:translate(-50%,0)}
-.in-hs .fab.show{transform:translate(-50%,160%)}
 .fab .btn{box-shadow:0 14px 40px rgba(0,0,0,.55),0 10px 36px rgba(240,106,0,.35)}
 
-@media(min-width:900px){
-  .hero{padding-top:156px}
-  .hero-grid{grid-template-columns:minmax(0,1.7fr) minmax(0,.6fr);align-items:end;gap:48px}
-  .menu{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .monthly{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+@media(min-width:720px){
+  .needs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .doors{grid-template-columns:repeat(2,minmax(0,1fr))}
   .steps{grid-template-columns:repeat(3,minmax(0,1fr))}
   .step{grid-template-columns:minmax(0,1fr)}
-  .quotes{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(min-width:900px){
+  .hero{padding-top:150px}
+  .hero-grid{grid-template-columns:minmax(0,1.7fr) minmax(0,.6fr);gap:40px}
+  .art{width:min(340px,100%)}
+  .monthly{grid-template-columns:minmax(0,1fr) auto;align-items:center}
   .who{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px}
 }
-
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .ln>span{animation:none;transform:none}
   .js .rv{opacity:1;transform:none;transition:none}
-  .marq-track{animation:none}
-  .marq{transform:none}
-  .js .statement span{color:#fff}
-  .split .sl,.split .sr{transform:none!important}
+  .marq-track{animation:none}.marq{transform:none}
 }
 </style>
 </head>
-
 <body>
 
 <header class="top">
   <div class="wrap top-in">
-    <div class="brand"><img class="top-gif" src="Giuseppe.gif" alt="Giuseppe Parrini, desenvolvedor" width="64" height="64"></div>
+    <a class="brand" href="#inicio" aria-label="Parrini Dev, início"><img class="gif" src="Giuseppe.gif" alt="" width="64" height="64"><img class="logo" src="parrini-dev-logo-dark.svg" alt="Parrini Dev" width="125" height="30"></a>
     <nav class="nav">
-      <a class="pill pill-ghost" href="https://gparrini.github.io/parrini.dev/" aria-label="Portfólio">Portfólio</a>
-      <a class="pill pill-demo" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site.">Quero meu site <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+      <a class="pill" href="#cases">Cases</a>
+      <a class="pill pill-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero conversar sobre uma solução para o meu negócio.">Falar comigo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
     </nav>
   </div>
 </header>
 
 <main id="inicio">
+  <!-- ===== HERO ===== -->
   <section class="hero">
+    <div class="codebg" aria-hidden="true" id="codebg"></div>
     <div class="wrap hero-grid">
       <div>
-        <p class="hero-logo rv"><img src="parrini-dev-logo-dark.svg" alt="Parrini Dev, estúdio de sites em Brasília" width="167" height="40"></p>
-        <h1 class="h1" aria-label="Sites que vendem pelo WhatsApp">
-          <span class="ln" aria-hidden="true"><span style="--i:0">Sites que</span></span>
-          <span class="ln" aria-hidden="true"><span style="--i:1" class="or">vendem</span></span>
-          <span class="ln" aria-hidden="true"><span style="--i:2">pelo WhatsApp.</span></span>
-        </h1>
-        <p class="lead rv" style="--d:.45s">Catálogo, landing page e bio link para o seu comércio. Você vê uma <strong>demo com o nome do seu negócio</strong> antes de decidir, e no catálogo atualiza produtos e preços sozinho, pelo painel.</p>
-        <div class="hero-cta rv" style="--d:.6s">
-          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site para o meu negócio.">Pedir minha demo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
-          <a class="btn btn-ghost" href="#cardapio">Ver serviços e preços <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4H10a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H3.5A1.5 1.5 0 0 1 2 16.5z"/><path d="M22 5.5A1.5 1.5 0 0 0 20.5 4H14a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg></a>
+        <p class="label rv">estúdio de soluções digitais · Brasília</p>
+        <h1 class="h1 rv" style="--d:.08s">Tecnologia sob medida pro seu negócio <span class="hl">vender mais.</span></h1>
+        <p class="lead rv" style="--d:.18s">Sites, sistemas e automações feitos para o jeito que você trabalha. Você vê uma <strong>prévia com o nome do seu negócio</strong> antes de decidir.</p>
+        <div class="hero-cta rv" style="--d:.28s">
+          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero uma prévia para o meu negócio.">Quero minha prévia <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+          <a class="btn btn-ghost" href="#solucoes">O que você precisa? <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></a>
         </div>
+        <div class="proof rv" style="--d:.36s"><span><b>5</b> cases reais aqui embaixo</span><span><b>2º</b> lugar hackathon PMI-DF</span><span>atendimento direto comigo</span></div>
+      </div>
+      <div class="art rv" style="--d:.2s" aria-hidden="true">
+        <img class="gif" src="Giuseppe.gif" alt="" width="64" height="64">
       </div>
     </div>
   </section>
 
   <div class="marq-wrap" aria-hidden="true">
-    <div class="marq">
-      <div class="marq-track">
-        <span>Sites</span><span>Catálogo</span><span>Landing page</span><span>Bio link</span><span>Painel</span><span>WhatsApp</span>
-        <span>Sites</span><span>Catálogo</span><span>Landing page</span><span>Bio link</span><span>Painel</span><span>WhatsApp</span>
-      </div>
-    </div>
+    <div class="marq"><div class="marq-track">
+      <span>Sites</span><span>Catálogos</span><span>Sistemas</span><span>Automações</span><span>Painéis</span><span>Apps</span>
+      <span>Sites</span><span>Catálogos</span><span>Sistemas</span><span>Automações</span><span>Painéis</span><span>Apps</span>
+    </div></div>
   </div>
-  <section class="statement-sec">
+
+  <!-- ===== O QUE VOCÊ PRECISA ===== -->
+  <section class="sec light" id="solucoes">
     <div class="wrap">
-      <p class="statement">Seu cliente pesquisa, compara e chama no zap. O seu site precisa estar pronto para esse momento.</p>
-    </div>
-  </section>
-  <section class="sec light" id="cardapio">
-    <div class="wrap">
-      <p class="label rv"><b>01</b> / Serviços e preços</p>
-      <h2 class="h2 rv">Escolha o que <span class="hl">você precisa</span></h2>
+      <p class="label rv">o que você precisa?</p>
+      <h2 class="h2 rv">Comece pelo seu problema, <span class="mk">não pela ferramenta.</span></h2>
+      <p class="sub rv">Escolha o que mais parece com o seu momento. Se não souber, me chama que a gente descobre junto.</p>
 
-      <div class="menu">
-        <article class="item rv">
-          <div class="item-top"><span>01</span><span>Bio link</span></div>
-          <h3 class="desire">Quero um cartão de visita digital</h3>
-          <p class="desc">Uma página com seus links, WhatsApp e redes, pronta para a bio do Instagram.</p>
-          <div class="price"><small>a partir de</small><strong>R$ 150</strong></div>
-          <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Bio link*. Pode me mandar uma demo?">Pedir esse <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+      <div class="needs">
+        <article class="need feat rv">
+          <span class="num">01 · mais pedido</span>
+          <h3 class="h3">Quero vender mais pelo WhatsApp</h3>
+          <p>O cliente acha você no Instagram ou no Google e chega no zap sabendo o que quer comprar.</p>
+          <div class="opts">
+            <div class="opt"><span>Catálogo com painel e pedido no zap</span><em>a partir de R$ 800</em></div>
+            <div class="opt"><span>Landing page de oferta</span><em>a partir de R$ 350</em></div>
+            <div class="opt"><span>Bio link com a sua cara</span><em>a partir de R$ 150</em></div>
+          </div>
+          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero vender mais pelo WhatsApp. Pode me mandar uma prévia para o meu negócio?">Quero vender mais</a>
         </article>
 
-        <article class="item rv" style="--d:.08s">
-          <div class="item-top"><span>02</span><span>Landing page</span></div>
-          <h3 class="desire">Quero uma página para vender meu produto</h3>
-          <p class="desc">Uma página única, direta, com a oferta e o botão para o cliente chamar no WhatsApp.</p>
-          <div class="price"><small>a partir de</small><strong>R$ 350</strong></div>
-          <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero uma *Landing page* para o meu negócio. Pode me mandar uma demo?">Pedir esse <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+        <article class="need rv" style="--d:.06s">
+          <span class="num">02</span>
+          <h3 class="h3">Quero ser encontrado e passar confiança</h3>
+          <p>Quem pesquisa pelo seu serviço acha você, entende o que você faz e sabe como te chamar.</p>
+          <div class="opts">
+            <div class="opt"><span>Site institucional</span><em>sob orçamento</em></div>
+            <div class="opt"><span>Página otimizada para o Google</span><em>sob orçamento</em></div>
+          </div>
+          <a class="btn btn-ink" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero que meu negócio seja encontrado na internet e passe mais confiança. Podemos conversar?">Quero ser encontrado</a>
         </article>
 
-        <article class="item feat rv" style="--d:.16s">
-          <div class="item-top"><span>03</span><span class="tag-or">Destaque</span></div>
-          <h3 class="desire">Quero receber pedidos no zap</h3>
-          <p class="name">Catálogo com painel</p>
-          <p class="desc">Seus produtos em uma vitrine online, com carrinho que termina no WhatsApp e um painel simples para você atualizar estoque e preço.</p>
-          <div class="price"><small>a partir de</small><strong>R$ 800</strong></div>
-          <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Catálogo com painel* para receber pedidos no WhatsApp. Pode me mandar uma demo?">Pedir esse <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+        <article class="need rv" style="--d:.12s">
+          <span class="num">03</span>
+          <h3 class="h3">Quero organizar a operação</h3>
+          <p>Planilha, caderno e mensagem solta viram um sistema simples que mostra tudo num lugar só.</p>
+          <div class="opts">
+            <div class="opt"><span>Sistema de gestão com painel</span><em>sob orçamento</em></div>
+            <div class="opt"><span>Automações e integrações</span><em>sob orçamento</em></div>
+          </div>
+          <a class="btn btn-ink" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero organizar a operação do meu negócio com um sistema. Podemos conversar?">Quero organizar</a>
         </article>
 
-        <article class="item rv" style="--d:.24s">
-          <div class="item-top"><span>04</span><span>Site institucional</span></div>
-          <h3 class="desire">Quero um site completo para minha empresa</h3>
-          <p class="desc">Várias seções, identidade do seu negócio e o caminho até o WhatsApp em cada uma delas.</p>
-          <div class="price"><small>valor</small><strong>sob orçamento</strong></div>
-          <a class="btn" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero um *Site institucional*. Podemos conversar sobre o orçamento?">Pedir orçamento <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+        <article class="need rv" style="--d:.18s">
+          <span class="num">04</span>
+          <h3 class="h3">Tenho uma ideia de app ou sistema</h3>
+          <p>Você tem a ideia, eu te ajudo a transformar em algo que funciona, começando pela versão mais simples.</p>
+          <div class="opts">
+            <div class="opt"><span>Web app que instala no celular</span><em>sob orçamento</em></div>
+            <div class="opt"><span>Protótipo para validar a ideia</span><em>sob orçamento</em></div>
+          </div>
+          <a class="btn btn-ink" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Tenho uma ideia de app/sistema e queria conversar com você.">Contar minha ideia</a>
         </article>
       </div>
+
       <div class="monthly rv">
         <div>
-          <h3>Mensalidade <em>a partir de R$ 100</em></h3>
-          <p>Seu site no ar sem você se preocupar: suporte pelo WhatsApp, pequenos ajustes todo mês e backup. O domínio fica no seu nome.</p>
+          <h3 class="h3">Mensalidade <em>a partir de R$ 100</em></h3>
+          <p>Sua solução no ar sem dor de cabeça: suporte pelo WhatsApp, pequenos ajustes todo mês e backup. O domínio fica no seu nome.</p>
         </div>
-        <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero saber como funciona a mensalidade do site (suporte, ajustes e backup).">Quero saber mais <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+        <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero saber como funciona a mensalidade (suporte, ajustes e backup).">Como funciona</a>
       </div>
-
-      <p class="custom rv">Precisa de algo diferente do que está aqui? <a href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Preciso de algo diferente dos serviços do site e queria conversar com você.">Me conta no WhatsApp</a>.</p>
+      <p class="custom rv">Não achou o seu caso? <a href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Meu caso é diferente dos que estão no site e queria conversar.">Me conta no WhatsApp</a>.</p>
     </div>
   </section>
+
+  <!-- ===== CASES ===== -->
   <section class="sec" id="cases">
     <div class="wrap">
-      <p class="label rv"><b>02</b> / No ar</p>
-      <h2 class="h2 rv">Sites que já estão <span class="or">trabalhando</span></h2>
+      <p class="label rv">no ar</p>
+      <h2 class="h2 rv">Projetos que já estão <span class="hl">trabalhando.</span></h2>
 
       <div class="hs" id="hs">
       <div class="hs-pin">
@@ -379,8 +385,9 @@ img{display:block;max-width:100%}
           <div class="sc-text">
             <div class="sc-head"><span class="sc-num">01</span></div>
             <h3>iLoog Delivery</h3>
-            <div class="tags"><span>Landing page</span><span>Cliente real</span><span class="hot">Refeito na v2</span></div>
-            <p>Landing page para delivery, refeita na versão 2 a pedido do cliente.</p>
+            <div class="tags"><span>Landing page</span><span>Cliente real</span><span class="hot">Refeito do zero</span></div>
+            <p>Saiu do WordPress para código próprio, mais leve e mais rápido.</p>
+            <div class="metrics"><div><small>pagespeed</small><s>43</s><b>97</b></div><div><small>peso</small><s>2,4 MB</s><b>78KB</b></div><div><small>plugins</small><s>37</s><b>0</b></div></div>
             <a class="go" href="https://iloogdelivery.com.br/" target="_blank" rel="noopener">Ver no ar <svg class="ic ic-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
           </div>
           <div class="frame">
@@ -430,14 +437,14 @@ img{display:block;max-width:100%}
         <article class="scard">
           <div class="sc-text">
             <div class="sc-head"><span class="sc-num">05</span></div>
-            <h3>Contratos SENAI</h3>
+            <h3>Controle de contratos</h3>
             <div class="tags"><span>Sistema web</span><span class="hot">Automação</span></div>
-            <p>Sistema web para controle de contratos, feito durante meu estágio no SENAI/CNI.</p>
+            <p>Sistema web para controle de contratos, desenvolvido no meu estágio.</p>
             <span class="priv">Projeto privado</span>
           </div>
           <div class="frame">
             <div class="bar"><i></i><i></i><i></i><span class="url">sistema interno</span></div>
-            <div class="shot"><img src="imagens/senai.webp" alt="Contratos SENAI" width="800" height="667" onerror="this.parentNode.classList.add('noimg')"></div>
+            <div class="shot"><img src="imagens/senai.webp" alt="Sistema de controle de contratos" width="800" height="667" onerror="this.parentNode.classList.add('noimg')"></div>
           </div>
         </article>
         <article class="scard scard-cta">
@@ -445,8 +452,8 @@ img{display:block;max-width:100%}
             <div class="sc-head"><span class="sc-num">06</span></div>
             <h3>O próximo pode ser o seu negócio</h3>
             <div class="tags"><span>Próximo case</span></div>
-            <p>Me conta o que você vende e eu preparo uma demo com o nome da sua loja.</p>
-            <a class="btn btn-dark" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seus cases e quero uma demo para o meu negócio.">Quero minha demo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+            <p>Me conta o que você vende e eu preparo uma prévia com o nome do seu negócio.</p>
+            <a class="btn btn-dark" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seus projetos e quero uma prévia para o meu negócio.">Quero minha prévia <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
           </div>
           <div class="cta-art"><img class="cta-gif" src="Giuseppe.gif" alt="" width="64" height="64"><img src="parrini-dev-logo-dark.svg" alt="Parrini Dev" width="188" height="45"></div>
         </article>
@@ -461,104 +468,129 @@ img{display:block;max-width:100%}
       </div>
     </div>
   </section>
-  <section class="sec" id="como" style="padding-top:0">
-    <div class="split" aria-hidden="true">
-      <span class="sl">Do pedido</span>
-      <span class="sr">ao ar.</span>
-    </div>
+
+  <!-- ===== COMO FUNCIONA ===== -->
+  <section class="sec light" id="como">
     <div class="wrap">
-      <h2 class="label" style="margin-top:44px"><b>03</b> / Como funciona</h2>
-      <ol class="steps" style="list-style:none">
-        <li class="step rv"><div><h3>Conversa rápida</h3><p>Você me conta o que vende e como seus clientes chegam até você, direto pelo WhatsApp.</p></div></li>
-        <li class="step rv" style="--d:.1s"><div><h3>Você vê a demo</h3><p>Eu monto um protótipo com o nome do seu negócio. Só fecha se gostar do que viu.</p></div></li>
-        <li class="step rv" style="--d:.2s"><div><h3>No ar, com prazo combinado</h3><p>Publico, deixo o domínio no seu nome e te ensino a usar o painel. O prazo vai por escrito antes de começar.</p></div></li>
+      <p class="label rv">como funciona</p>
+      <h2 class="h2 rv">Do primeiro oi <span class="mk">ao ar.</span></h2>
+      <ol class="steps">
+        <li class="step rv"><div><h3>Conversa rápida</h3><p>Você me conta o que vende e onde está travando, direto pelo WhatsApp.</p></div></li>
+        <li class="step rv" style="--d:.08s"><div><h3>Você vê a prévia</h3><p>Eu monto um protótipo com o nome do seu negócio. Só fecha se gostar do que viu.</p></div></li>
+        <li class="step rv" style="--d:.16s"><div><h3>No ar, com prazo combinado</h3><p>Prazo e valor por escrito antes de começar. Entrego, ensino a usar e sigo no suporte.</p></div></li>
       </ol>
     </div>
   </section>
-  <section class="sec" id="quem" style="padding-top:0">
+
+  <!-- ===== QUEM FAZ ===== -->
+  <section class="sec" id="quem">
     <div class="wrap who">
-      <div class="who-img rv"><img src="https://gparrini.github.io/parrini.dev/imagens/parrini-perfil.jpg" alt="Giuseppe Parrini" loading="lazy"></div>
-      <div class="rv" style="--d:.1s">
-        <p class="label"><b>04</b> / Quem faz</p>
-        <h2>Oi, eu sou o Giuseppe.</h2>
-        <p>Estudo Engenharia de Software na UFG e faço estágio no SENAI/CNI. Você fala direto comigo, do primeiro papo ao suporte depois de entregue, sem intermediário.</p>
-        <div class="chips"><span>UFG · Eng. de Software</span><span>SENAI/CNI</span></div>
+      <div class="who-img rv"><img src="https://gparrini.github.io/parrini.dev/imagens/parrini-perfil.jpg" alt="Giuseppe Parrini" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="rv" style="--d:.08s">
+        <p class="label">quem faz</p>
+        <h2 class="h2">Oi, eu sou o <span class="hl">Giuseppe.</span></h2>
+        <p>Estudo Engenharia de Software na UFG e trabalho com desenvolvimento de sistemas no meu estágio. Aqui no Parrini Dev, você fala direto comigo, do primeiro papo ao suporte depois de entregue.</p>
+        <div class="chips"><span>UFG · Eng. de Software</span><span>Estágio em desenvolvimento</span><span class="hot">2º lugar Hackathon PMI-DF</span></div>
       </div>
     </div>
   </section>
-  <section class="final">
+
+  <!-- ===== OUTRAS PORTAS ===== -->
+  <section class="sec" id="parceiros" style="padding-top:0">
     <div class="wrap">
-      <h2 class="rv">Bora colocar seu negócio no ar?</h2>
-      <p class="rv" style="--d:.1s">Me chama no WhatsApp e peça sua demo. Sem compromisso.</p>
-      <a class="btn btn-dark rv" style="--d:.2s" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero colocar meu negócio no ar. Pode me mandar uma demo?">Chamar no WhatsApp <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+      <p class="label rv">outras portas</p>
+      <h2 class="h2 rv">Não é cliente? <span class="mk">Bora junto.</span></h2>
+      <div class="doors">
+        <div class="door rv">
+          <h3 class="h3">Agência ou gestor de tráfego</h3>
+          <p>Você traz o cliente e cuida da campanha. Eu entrego o site, a landing page ou o sistema por trás, no prazo e com a sua marca.</p>
+          <a class="btn btn-ghost" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Sou de agência / gestor de tráfego e quero conversar sobre parceria de desenvolvimento.">Quero um dev parceiro</a>
+        </div>
+        <div class="door rv" style="--d:.08s">
+          <h3 class="h3">Quer trabalhar com o Parrini Dev</h3>
+          <ul>
+            <li><b>Vendedor:</b> comissão por cliente fechado.</li>
+            <li><b>Dev iniciante:</b> traga um cliente e a gente desenvolve junto, você aprende na prática.</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero trabalhar com o Parrini Dev (vendedor / dev iniciante).">Quero participar</a>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- ===== FINAL ===== -->
+  <section class="final">
+    <div class="wrap">
+      <h2 class="h2 rv">Bora fazer seu negócio vender mais?</h2>
+      <p class="rv" style="--d:.08s">Me chama no WhatsApp e peça sua prévia. Sem compromisso.</p>
+      <a class="btn btn-dark rv" style="--d:.16s" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero uma prévia para o meu negócio.">Chamar no WhatsApp <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+    </div>
+  </section>
 </main>
 
 <footer class="foot">
   <div class="wrap">
     <a class="port" href="https://gparrini.github.io/parrini.dev/">
       <div><strong>Quer ver mais do meu trabalho?</strong><span>Portfólio completo, projetos e certificados</span></div>
-      <em aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></em>
+      <em aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></em>
     </a>
-    <a class="totop" href="#inicio">Voltar ao topo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></a>
-    <img class="foot-gif" src="Giuseppe.gif" alt="Giuseppe programando em sua mesa" width="96" height="96" loading="lazy">
+    <img class="foot-gif" src="Giuseppe.gif" alt="Giuseppe programando em sua mesa" width="88" height="88" loading="lazy">
     <img class="foot-logo" src="parrini-dev-logo-dark.svg" alt="Parrini Dev" width="125" height="30" loading="lazy">
-    <p class="copy">© 2026 Parrini Dev</p>
+    <p class="copy">© 2026 Parrini Dev · Brasília</p>
   </div>
 </footer>
 
 <div class="fab" id="fab">
-  <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil no Instagram e quero pedir uma demo de site.">Pedir demo no WhatsApp <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+  <a class="btn btn-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero uma prévia para o meu negócio.">Pedir prévia no WhatsApp <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
 </div>
 
 <script>
 (function(){
-  var NUM='5561984474187';
+  var NUM='5561984474187';          // EDITAR se mudar o número
+  var GA_ID='G-Y66XZY1GS0';         // Google Analytics
 
-  var GA_ID='G-Y66XZY1GS0';
   if(GA_ID){
-    var gs=document.createElement('script'); gs.async=true; gs.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; document.head.appendChild(gs);
-    window.dataLayer=window.dataLayer||[]; window.gtag=function(){dataLayer.push(arguments);};
-    gtag('js',new Date()); gtag('config',GA_ID);
+    var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(gs);
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};
+    gtag('js',new Date());gtag('config',GA_ID);
   }
 
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var clamp=function(v){return Math.min(1,Math.max(0,v));};
-
+  /* origem do clique: ?utm_source=instagram  ou  ?ref=nome-do-vendedor */
+  var qs=new URLSearchParams(location.search);
+  var origem=qs.get('ref')||qs.get('utm_source');
   document.querySelectorAll('[data-msg]').forEach(function(a){
-    a.href='https://wa.me/'+NUM+'?text='+encodeURIComponent(a.getAttribute('data-msg'));
+    var m=a.getAttribute('data-msg')+(origem?'\n\n(origem: '+origem+')':'');
+    a.href='https://wa.me/'+NUM+'?text='+encodeURIComponent(m);
+    a.target='_blank';a.rel='noopener';
+  });
+  if(origem&&typeof gtag==='function')gtag('event','origem',{origem:origem});
+
+  /* UTM nos links externos */
+  var UTM={utm_source:'parrini-bio',utm_medium:'referral',utm_campaign:'solucoes'};
+  document.querySelectorAll('a[href^="http"]').forEach(function(a){
+    if(a.href.indexOf('wa.me')>-1)return;
+    try{var u=new URL(a.href);Object.keys(UTM).forEach(function(k){if(!u.searchParams.has(k))u.searchParams.set(k,UTM[k])});a.href=u.toString()}catch(e){}
   });
 
-  var rv=document.querySelectorAll('.rv');
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
-    rv.forEach(function(el){io.observe(el);});
-  } else { rv.forEach(function(el){el.classList.add('in');}); }
-
-  var fab=document.getElementById('fab'), cta=document.querySelector('.hero-cta');
-  if('IntersectionObserver' in window && cta){
-    new IntersectionObserver(function(es){
-      es.forEach(function(e){ fab.classList.toggle('show', !e.isIntersecting && e.boundingClientRect.top<0); });
-    }).observe(cta);
-  } else { fab.classList.add('show'); }
-
-  var stm=document.querySelector('.statement'), words=[];
-  if(stm){
-    var txt=stm.textContent.trim().split(/\s+/); stm.textContent='';
-    txt.forEach(function(w,i){
-      var s=document.createElement('span'); s.textContent=w; stm.appendChild(s); words.push(s);
-      if(i<txt.length-1) stm.appendChild(document.createTextNode(' '));
-    });
-    if(reduce) words.forEach(function(w){w.classList.add('on');});
+  /* eventos */
+  function track(name,a){
+    if(typeof gtag!=='function')return;
+    var sec=a.closest('section,header,footer,.fab');
+    gtag('event',name,{link_text:(a.textContent||'').trim().slice(0,40),secao:sec?(sec.id||sec.className.split(' ')[0]):'topo',origem:origem||'direto'});
   }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+    if(a.href.indexOf('wa.me')>-1)track('whatsapp_click',a);
+    else if(a.href.indexOf('parrini.dev')>-1)track('portfolio_click',a);
+    else if(a.classList.contains('go'))track('case_click',a);
+  });
 
-  var split=document.querySelector('.split');
-  var sl=split&&split.querySelector('.sl'), sr=split&&split.querySelector('.sr');
+  /* código ao fundo do hero */
+  var cb=document.getElementById('codebg');
+  if(cb){var c='const pedido = await zap.enviar({ cliente, itens, total });\nexport default function Catalogo({ produtos }) {\n  return produtos.map(p => <Card key={p.id} {...p} />);\n}\n:root { --marca: #f06a00; --raio: 20px; }\nnpm run build && deploy --prod\nif (pagespeed < 90) refatorar();\ngit commit -m "seu negócio no ar"\n';cb.textContent=c+c+c+c+c}
 
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clamp=function(v){return Math.min(1,Math.max(0,v))};
   var hs=document.getElementById('hs'), stack=document.getElementById('stack');
   var cards=stack?[].slice.call(stack.children):[], N=cards.length;
   var hsn=document.getElementById('hsn'), hsTxt=document.getElementById('hsTxt'), hsHint=document.getElementById('hsHint');
@@ -658,57 +690,23 @@ img{display:block;max-width:100%}
   window.addEventListener('resize',function(){
     if(window.innerWidth===lastW) return;    lastW=window.innerWidth; hsSize(); hsTarget();
   });
-
-  var qs=new URLSearchParams(location.search);
-  var src=qs.get('utm_source');
-  if(src){
-    document.querySelectorAll('[data-msg]').forEach(function(a){
-      a.href='https://wa.me/'+NUM+'?text='+encodeURIComponent(a.getAttribute('data-msg')+'\n\n(origem: '+src+')');
-    });
-  }
-  var UTM={utm_source:'parrini-bio',utm_medium:'referral',utm_campaign:'estudio-de-sites'};
-  document.querySelectorAll('a[href^="http"]').forEach(function(a){
-    if(a.href.indexOf('wa.me')>-1) return;
-    try{
-      var u=new URL(a.href);
-      Object.keys(UTM).forEach(function(k){ if(!u.searchParams.has(k)) u.searchParams.set(k,UTM[k]); });
-      a.href=u.toString();
-    }catch(e){}
-  });
-  function track(name,a){
-    if(typeof gtag!=='function') return;
-    var sec=a.closest('section,header,footer,.fab');
-    gtag('event',name,{link_text:(a.textContent||'').trim().slice(0,40),secao:sec?(sec.id||sec.className.split(' ')[0]):'topo'});
-  }
-  document.addEventListener('click',function(e){
-    var a=e.target.closest&&e.target.closest('a[href]'); if(!a) return;
-    if(a.href.indexOf('wa.me')>-1) track('whatsapp_click',a);
-    else if(a.href.indexOf('parrini.dev')>-1) track('portfolio_click',a);
-    else if(a.classList.contains('go')) track('case_click',a);
-  });
-
-  var ticking=false;
-  function frame(){
-    var vh=window.innerHeight;
-    if(stm && !reduce){
-      var r=stm.getBoundingClientRect();
-      var p=clamp((vh*.88-r.top)/(vh*.55+r.height*.6));
-      var n=Math.round(p*words.length);
-      words.forEach(function(w,i){w.classList.toggle('on',i<n);});
-    }
-    if(split && !reduce){
-      var q=split.getBoundingClientRect();
-      var e=1-clamp((vh-q.top)/(vh*.8));
-      sl.style.transform='translate3d('+(-e*38)+'vw,0,0)';
-      sr.style.transform='translate3d('+(e*38)+'vw,0,0)';
-    }
-    ticking=false;
-  }
-  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(frame); } }
-  window.addEventListener('scroll',onScroll,{passive:true});
   window.addEventListener('scroll',hsTarget,{passive:true});
-  window.addEventListener('resize',onScroll);
-  frame();
+
+  /* reveal */
+  var rv=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  }else rv.forEach(function(el){el.classList.add('in')});
+
+  /* botão flutuante aparece depois do hero */
+  var fab=document.getElementById('fab'),cta=document.querySelector('.hero-cta'),fin=document.querySelector('.final');
+  if('IntersectionObserver' in window&&cta){
+    var past=false,atEnd=false,upd=function(){fab.classList.toggle('show',past&&!atEnd)};
+    new IntersectionObserver(function(es){es.forEach(function(e){past=!e.isIntersecting&&e.boundingClientRect.top<0;upd()})}).observe(cta);
+    if(fin)new IntersectionObserver(function(es){es.forEach(function(e){atEnd=e.isIntersecting;upd()})}).observe(fin);
+  }else fab.classList.add('show');
+
 })();
 </script>
 </body>
