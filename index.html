@@ -67,6 +67,8 @@ img{display:block;max-width:100%}
 /* reveal */
 .js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
+.js .sw .w{opacity:.16;transition:opacity .35s}
+.js .sw .w.on{opacity:1}
 
 /* topo */
 .top{position:fixed;top:10px;left:10px;right:10px;z-index:50;max-width:1100px;margin-inline:auto;background:rgba(13,13,13,.9);border:1px solid rgba(255,255,255,.1);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
@@ -260,6 +262,7 @@ img{display:block;max-width:100%}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .js .rv{opacity:1;transform:none;transition:none}
+  .js .sw .w{opacity:1}
   .marq-track{animation:none}.marq{transform:none}
 }
 </style>
@@ -270,7 +273,7 @@ img{display:block;max-width:100%}
   <div class="wrap top-in">
     <a class="brand" href="#inicio" aria-label="Parrini Dev, início"><img class="gif" src="Giuseppe.gif" alt="" width="64" height="64"><img class="logo" src="parrini-dev-logo-dark.svg" alt="Parrini Dev" width="125" height="30"></a>
     <nav class="nav">
-      <a class="pill" href="https://gparrini.github.io/parrini.dev/">Portfólio</a>
+      <a class="pill" href="https://gparrini.github.io/parrini.dev/" target="_blank" rel="noopener">Portfólio</a>
       <a class="pill pill-or" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Vi seu perfil e quero conversar sobre uma solução para o meu negócio.">Falar comigo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
     </nav>
   </div>
@@ -307,7 +310,7 @@ img{display:block;max-width:100%}
   <section class="sec light" id="solucoes">
     <div class="wrap">
       <p class="label rv">o que você precisa?</p>
-      <h2 class="h2 rv">Comece pelo seu problema, <span class="mk">não pela ferramenta.</span></h2>
+      <h2 class="h2 sw">Comece pelo seu problema, <span class="mk">não pela ferramenta.</span></h2>
       <p class="sub rv">Escolha o que mais parece com o seu momento. Se não souber, me chama que a gente descobre junto.</p>
 
       <div class="needs">
@@ -469,7 +472,7 @@ img{display:block;max-width:100%}
   <section class="sec light" id="como">
     <div class="wrap">
       <p class="label rv">como funciona</p>
-      <h2 class="h2 rv">Do primeiro oi <span class="mk">ao ar.</span></h2>
+      <h2 class="h2 sw">Do primeiro oi <span class="mk">ao ar.</span></h2>
       <ol class="steps">
         <li class="step rv"><div><h3>Conversa rápida</h3><p>Você me conta o que vende e onde está travando, direto pelo WhatsApp.</p></div></li>
         <li class="step rv" style="--d:.08s"><div><h3>Você vê a prévia</h3><p>Eu monto um protótipo com o nome do seu negócio. Só fecha se gostar do que viu.</p></div></li>
@@ -495,7 +498,7 @@ img{display:block;max-width:100%}
   <section class="sec" id="parceiros" style="padding-top:0">
     <div class="wrap">
       <p class="label rv">outras portas</p>
-      <h2 class="h2 rv">Não é cliente? <span class="mk">Bora junto.</span></h2>
+      <h2 class="h2 sw">Não é cliente? <span class="mk">Bora junto.</span></h2>
       <div class="doors">
         <div class="door rv">
           <h3 class="h3">Agência ou gestor de tráfego</h3>
@@ -526,7 +529,7 @@ img{display:block;max-width:100%}
 
 <footer class="foot">
   <div class="wrap">
-    <a class="port" href="https://gparrini.github.io/parrini.dev/">
+    <a class="port" href="https://gparrini.github.io/parrini.dev/" target="_blank" rel="noopener">
       <div><strong>Quer ver mais do meu trabalho?</strong><span>Portfólio completo, projetos e certificados</span></div>
       <em aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></em>
     </a>
@@ -586,6 +589,38 @@ img{display:block;max-width:100%}
   if(cb){var c='const pedido = await zap.enviar({ cliente, itens, total });\nexport default function Catalogo({ produtos }) {\n  return produtos.map(p => <Card key={p.id} {...p} />);\n}\n:root { --marca: #f06a00; --raio: 20px; }\nnpm run build && deploy --prod\nif (pagespeed < 90) refatorar();\ngit commit -m "seu negócio no ar"\n';cb.textContent=c+c+c+c+c}
 
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* títulos que acendem palavra por palavra conforme a rolagem */
+  var sws=[].slice.call(document.querySelectorAll('.sw')).map(function(h){
+    var ws=[];
+    [].slice.call(h.childNodes).forEach(function(n){
+      if(n.nodeType===1){ n.classList.add('w'); ws.push(n); return; }
+      var parts=n.textContent.split(/(\s+)/), f=document.createDocumentFragment();
+      parts.forEach(function(t){
+        if(!t) return;
+        if(/^\s+$/.test(t)){ f.appendChild(document.createTextNode(t)); return; }
+        var s=document.createElement('span'); s.className='w'; s.textContent=t; f.appendChild(s); ws.push(s);
+      });
+      h.replaceChild(f,n);
+    });
+    return {el:h,ws:ws};
+  });
+  var swTick=false;
+  function swPaint(){
+    var vh=window.innerHeight;
+    sws.forEach(function(o){
+      var r=o.el.getBoundingClientRect();
+      var n=reduce?o.ws.length:Math.round(Math.min(1,Math.max(0,(vh*.9-r.top)/(vh*.45+r.height*.5)))*o.ws.length);
+      o.ws.forEach(function(w,i){w.classList.toggle('on',i<n);});
+    });
+    swTick=false;
+  }
+  if(sws.length){
+    var swOn=function(){ if(!swTick){ swTick=true; requestAnimationFrame(swPaint); } };
+    window.addEventListener('scroll',swOn,{passive:true});
+    window.addEventListener('resize',swOn);
+    swPaint();
+  }
   var clamp=function(v){return Math.min(1,Math.max(0,v))};
   var hs=document.getElementById('hs'), stack=document.getElementById('stack');
   var cards=stack?[].slice.call(stack.children):[], N=cards.length;
