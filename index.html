@@ -69,6 +69,8 @@ img{display:block;max-width:100%}
 .js .rv.in{opacity:1;transform:none}
 .js .sw .w{opacity:.16;transition:opacity .35s}
 .js .sw .w.on{opacity:1}
+.sp .sl,.sp .sr{display:block;will-change:transform}
+.sp .sr{text-align:right}
 
 /* topo */
 .top{position:fixed;top:10px;left:10px;right:10px;z-index:50;max-width:1100px;margin-inline:auto;background:rgba(13,13,13,.9);border:1px solid rgba(255,255,255,.1);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
@@ -263,6 +265,7 @@ img{display:block;max-width:100%}
   html{scroll-behavior:auto}
   .js .rv{opacity:1;transform:none;transition:none}
   .js .sw .w{opacity:1}
+  .sp .sl,.sp .sr{transform:none!important}
   .marq-track{animation:none}.marq{transform:none}
 }
 </style>
@@ -375,7 +378,7 @@ img{display:block;max-width:100%}
   <section class="sec" id="cases">
     <div class="wrap">
       <p class="label rv">no ar</p>
-      <h2 class="h2 rv">Projetos que já estão <span class="hl">trabalhando.</span></h2>
+      <h2 class="h2 sp"><span class="sl">Projetos que já estão</span> <span class="sr"><span class="hl">trabalhando.</span></span></h2>
 
       <div class="hs" id="hs">
       <div class="hs-pin">
@@ -520,7 +523,7 @@ img{display:block;max-width:100%}
   <!-- ===== FINAL ===== -->
   <section class="final">
     <div class="wrap">
-      <h2 class="h2 rv">Bora fazer seu negócio vender mais?</h2>
+      <h2 class="h2 sp"><span class="sl">Bora fazer seu negócio</span> <span class="sr">vender mais?</span></h2>
       <p class="rv" style="--d:.08s">Me chama no WhatsApp e peça sua prévia. Sem compromisso.</p>
       <a class="btn btn-dark rv" style="--d:.16s" href="https://wa.me/5561984474187" data-msg="Oi Giuseppe! Quero uma prévia para o meu negócio.">Chamar no WhatsApp <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
     </div>
@@ -590,7 +593,7 @@ img{display:block;max-width:100%}
 
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* títulos que acendem palavra por palavra conforme a rolagem */
+  /* títulos animados pela rolagem: palavras acendendo (.sw) e linhas vindo das laterais (.sp) */
   var sws=[].slice.call(document.querySelectorAll('.sw')).map(function(h){
     var ws=[];
     [].slice.call(h.childNodes).forEach(function(n){
@@ -605,6 +608,9 @@ img{display:block;max-width:100%}
     });
     return {el:h,ws:ws};
   });
+  var sps=[].slice.call(document.querySelectorAll('.sp')).map(function(h){
+    return {el:h,l:h.querySelector('.sl'),r:h.querySelector('.sr')};
+  });
   var swTick=false;
   function swPaint(){
     var vh=window.innerHeight;
@@ -613,9 +619,14 @@ img{display:block;max-width:100%}
       var n=reduce?o.ws.length:Math.round(Math.min(1,Math.max(0,(vh*.9-r.top)/(vh*.45+r.height*.5)))*o.ws.length);
       o.ws.forEach(function(w,i){w.classList.toggle('on',i<n);});
     });
+    if(!reduce) sps.forEach(function(o){
+      var e=1-Math.min(1,Math.max(0,(vh-o.el.getBoundingClientRect().top)/(vh*.8)));
+      o.l.style.transform='translate3d('+(-e*38)+'vw,0,0)';
+      o.r.style.transform='translate3d('+(e*38)+'vw,0,0)';
+    });
     swTick=false;
   }
-  if(sws.length){
+  if(sws.length||sps.length){
     var swOn=function(){ if(!swTick){ swTick=true; requestAnimationFrame(swPaint); } };
     window.addEventListener('scroll',swOn,{passive:true});
     window.addEventListener('resize',swOn);
