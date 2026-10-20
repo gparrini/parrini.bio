@@ -70,6 +70,7 @@ img{display:block;max-width:100%}
 .js .sw .w{opacity:.16;transition:opacity .25s}
 .js .sw .w.on{opacity:1}
 .sp .sl,.sp .sr{display:block;will-change:transform}
+#cases,.final{overflow-x:clip}
 .sp .sr{text-align:right}
 
 /* topo */
@@ -176,7 +177,7 @@ img{display:block;max-width:100%}
 .hs-btn:disabled{opacity:.28;cursor:default}
 .hs-btn svg{width:20px;height:20px}
 .hs-hint{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);min-width:0;text-align:center;line-height:1.25}
-.hs-hint b{color:var(--or);letter-spacing:.16em;font-weight:700}
+.hs-hint b{color:var(--or);letter-spacing:.16em;font-weight:700;white-space:nowrap}
 .hs-hint svg{width:16px;height:16px;color:var(--or);flex-shrink:0;animation:nudge 1.4s ease-in-out infinite}
 @keyframes nudge{50%{transform:translateY(4px)}}
 .hs-rail{position:absolute;right:max(10px,calc(50% - 520px - 34px));top:50%;transform:translateY(-50%);flex-direction:column;gap:10px;z-index:20}
@@ -195,6 +196,7 @@ img{display:block;max-width:100%}
 @media(max-width:899px){
   .top{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(13,13,13,.94)}
   .scard{box-shadow:none}
+  .art .gif{margin-top:-25%;transform:translateX(-9.4%)}
   .hs-on .scard{gap:12px;padding:18px}
   .hs-on .scard h3{font-size:clamp(24px,4.2vh,36px)}
   .hs-on .sc-num{font-size:40px}
